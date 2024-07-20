@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://6n1yf4i04di1"]
+[gd_scene load_steps=42 format=3 uid="uid://6n1yf4i04di1"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_4vq2i"]
 [ext_resource type="Texture2D" uid="uid://d0bvhkworp8to" path="res://Assets/SHEET2.png" id="2_qmgrk"]
@@ -20,24 +20,19 @@ animation = &"attack_side"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pj3a7"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_3dp5y")
-blend_point_0/pos = Vector2(0, -1)
+blend_point_0/pos = Vector2(0, 1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_5kkp3")
-blend_point_1/pos = Vector2(0, 1)
+blend_point_1/pos = Vector2(0, -1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_mfkbn")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_ne8h4")
 blend_point_3/pos = Vector2(1, 0)
 
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_d1pqf"]
-
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hwggg"]
 graph_offset = Vector2(-60.6198, -16.7975)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_pj3a7")
 nodes/BlendSpace2D/position = Vector2(110, 70)
-nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_d1pqf")
-nodes/TimeScale/position = Vector2(330, 50)
-nodes/output/position = Vector2(460, 140)
-node_connections = [&"TimeScale", 0, &"BlendSpace2D", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"BlendSpace2D"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hn5dn"]
 animation = &"idle_side"
@@ -147,7 +142,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yo7rt"]
 resource_name = "attack_back"
-length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -158,12 +152,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7]
+"values": [8]
 }
 
 [sub_resource type="Animation" id="Animation_xuxq4"]
 resource_name = "attack_front"
-length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -179,7 +172,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_brofa"]
 resource_name = "attack_side"
-length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -326,7 +318,6 @@ root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_7du7v")
 anim_player = NodePath("../AnimationPlayer")
 parameters/basic_attack/BlendSpace2D/blend_position = Vector2(0, 0)
-parameters/basic_attack/TimeScale/scale = 1.0
 parameters/idle/BlendSpace2D/blend_position = Vector2(0.0119237, 0.934211)
 parameters/idle/TimeScale/scale = 1.0
 parameters/walk/BlendSpace2D/blend_position = Vector2(0.997615, 0.0131578)
