@@ -128,7 +128,7 @@ states/idle/position = Vector2(341, 100.375)
 states/walk/node = SubResource("AnimationNodeBlendTree_8s3gq")
 states/walk/position = Vector2(495.5, 100.375)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_n5xq8"), "idle", "basic_attack", SubResource("AnimationNodeStateMachineTransition_koanb"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_vybde"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_p0yci"), "basic_attack", "idle", SubResource("AnimationNodeStateMachineTransition_lfvrb"), "walk", "basic_attack", SubResource("AnimationNodeStateMachineTransition_smpsp"), "basic_attack", "walk", SubResource("AnimationNodeStateMachineTransition_not2w")]
-graph_offset = Vector2(-105.027, 44.546)
+graph_offset = Vector2(-80.2944, 55.4029)
 
 [sub_resource type="Animation" id="Animation_1i34j"]
 length = 0.001
@@ -147,7 +147,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yo7rt"]
 resource_name = "attack_back"
-length = 0.2
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -163,7 +163,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xuxq4"]
 resource_name = "attack_front"
-length = 0.2
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -179,7 +179,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_brofa"]
 resource_name = "attack_side"
-length = 0.2
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
