@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://4e8pfuauopab"]
+[gd_scene load_steps=38 format=3 uid="uid://4e8pfuauopab"]
 
 [ext_resource type="Script" path="res://Characters/enemy.gd" id="1_2g0ci"]
 [ext_resource type="Texture2D" uid="uid://y3vr5ue6dlyu" path="res://Assets/ryu punch.png" id="1_bwwdo"]
@@ -43,8 +43,8 @@ animation = &"idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2d0l1"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6m846"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sjd7d"]
+animation = &"idleleft"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_n8680"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_r1ffc")
@@ -53,12 +53,13 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_hy8j1")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_2d0l1")
 blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_6m846")
+blend_point_3/node = SubResource("AnimationNodeAnimation_sjd7d")
 blend_point_3/pos = Vector2(-1, 0)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_le0ti"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0aagl"]
+graph_offset = Vector2(-109.219, -14.1581)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_n8680")
 nodes/BlendSpace2D/position = Vector2(0, 50)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_le0ti")
@@ -134,6 +135,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_efbii"]
 resource_name = "attack"
@@ -168,26 +181,58 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_oxwjj"]
+resource_name = "idleleft"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lnwju"]
 _data = {
 "RESET": SubResource("Animation_54rao"),
 "attack": SubResource("Animation_efbii"),
-"idle": SubResource("Animation_10b1x")
+"idle": SubResource("Animation_10b1x"),
+"idleleft": SubResource("Animation_oxwjj")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5737"]
 size = Vector2(1215, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_432rr"]
-size = Vector2(2600, 2363)
+size = Vector2(3980, 3792)
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_2g0ci")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(67, -148)
 texture = ExtResource("1_bwwdo")
 offset = Vector2(43, 148)
+flip_h = true
 hframes = 4
 vframes = 4
 
@@ -218,8 +263,9 @@ shape = SubResource("RectangleShape2D_m5737")
 [node name="AggroArea" type="Area2D" parent="."]
 
 [node name="Aggro" type="CollisionShape2D" parent="AggroArea"]
-position = Vector2(156, -4.5)
+position = Vector2(92, -19)
 shape = SubResource("RectangleShape2D_432rr")
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_entered" from="AggroArea" to="." method="_on_aggro_area_body_entered"]
+[connection signal="body_exited" from="AggroArea" to="." method="_on_aggro_area_body_exited"]
