@@ -3,65 +3,77 @@ class_name Player
 
 signal update_health(amount)
 
-@export var move_speed : float = 50000
-@export var starting_direction : Vector2 = Vector2(0,1)
+#---Export Variables Start---#
 @onready var sprite_2d = $Sprite2D
+@onready var animation_tree = $AnimationTree
+@onready var animation_player = $AnimationPlayer
+@export var move_speed : int = 500
+@export var friction : float = 0.125
+@export var acceleration : int = 40
+#---Export Variables End---#
+#---Variables Start---#
+var is_moving = false
+var is_attacking = false
+#---Variables End---#
+@export var starting_direction : Vector2 = Vector2(0,1)
+
 @onready var timer = $Timer
-@onready var collision_shape_2d = $Sprite2D/HitBox/CollisionShape2D
+@onready var collision_shape_2d = $Marker2D/HitBox/CollisionShape2D
+
 
 @onready var max_health = 100
 @onready var cur_health = max_health
 var armor = 0
 
-@onready var animation_tree = $AnimationTree
-var is_attacking = false
+
+
 
 func _ready():
 	animation_tree.active= true
 	emit_signal("update_health", cur_health)
 
-func _physics_process(delta):
-	
-	if is_attacking:
-		move_speed = 25000
-	else: 
-		move_speed = 50000
-	
-	var input_direction = Vector2(
-	Input.get_action_strength("move_right")- Input.get_action_strength("move_left"),
-	Input.get_action_strength("move_down")- Input.get_action_strength("move_up")
-	).normalized()
-	
-	if Input.is_action_just_pressed("basic_attack"):
-		animation_tree.get("parameters/playback").travel("basic_attack")
-		is_attacking = true
-		position += input_direction*10
-			
-	
+func _physics_process(_delta):
+	#---Movement Start--#
 	if is_attacking == false:
-		if(input_direction.y < 0 and input_direction.x == 0):
-			collision_shape_2d.position = Vector2(100,-250)
-		elif(input_direction.y > 0 and input_direction.x == 0):
-			collision_shape_2d.position = Vector2(120,200)
-		elif(input_direction.x < 0):
-			sprite_2d.scale.x = -1.1
-			collision_shape_2d.position = Vector2(265,-100)
-		else:
-			sprite_2d.scale.x = 1.1
-			collision_shape_2d.position = Vector2(265,-100)
-			
-		#velocity = input_direction*move_speed*delta
+		var input_direction = Vector2(
+		Input.get_action_strength("move_right")- Input.get_action_strength("move_left"),
+		Input.get_action_strength("move_down")- Input.get_action_strength("move_up")
+		).normalized()
+		
+		velocity = input_direction*move_speed
 		
 		if (input_direction == Vector2.ZERO):
 			animation_tree.get("parameters/playback").travel("idle")
 		else:
 			animation_tree.get("parameters/playback").travel("walk")
-			#setting all not efficient probably better way
 			animation_tree.set("parameters/idle/BlendSpace2D/blend_position", input_direction)
 			animation_tree.set("parameters/walk/BlendSpace2D/blend_position", input_direction)
-			animation_tree.set("parameters/basic_attack/BlendSpace2D/blend_position", input_direction)
-	velocity = input_direction*move_speed*delta
-	move_and_slide()
+			animation_tree.set("parameters/attack1/BlendSpace2D/blend_position", input_direction)
+		move_and_slide()
+	if Input.is_action_just_pressed("basic_attack"):
+		is_attacking = true
+		animation_tree.get("parameters/playback").travel("attack1")
+	#---Movement End--#
+	#if is_attacking:
+		#move_speed = 25000
+	#else: 
+		#move_speed = 50000
+	
+	
+	
+	#if Input.is_action_just_pressed("basic_attack"):
+		#animation_tree.get("parameters/playback").travel("basic_attack")
+		#is_attacking = true
+		#position += input_direction*10
+			
+	
+
+	#velocity = input_direction*move_speed*delta
+	#move_and_slide()
+	
+func finished_attacking():
+	is_attacking = false
+	
 	
 func _on_animation_tree_animation_finished(anim_name):
 	if "attack" in anim_name:
