@@ -7,6 +7,7 @@ signal update_health(amount)
 @export var starting_direction : Vector2 = Vector2(0,1)
 @onready var sprite_2d = $Sprite2D
 @onready var timer = $Timer
+@onready var collision_shape_2d = $Sprite2D/HitBox/CollisionShape2D
 
 @onready var max_health = 100
 @onready var cur_health = max_health
@@ -35,12 +36,20 @@ func _physics_process(delta):
 		animation_tree.get("parameters/playback").travel("basic_attack")
 		is_attacking = true
 		position += input_direction*10
+			
 	
 	if is_attacking == false:
-		if(input_direction.x < 0):
+		if(input_direction.y < 0 and input_direction.x == 0):
+			collision_shape_2d.position = Vector2(100,-250)
+		elif(input_direction.y > 0 and input_direction.x == 0):
+			collision_shape_2d.position = Vector2(120,200)
+		elif(input_direction.x < 0):
 			sprite_2d.scale.x = -1.1
-		elif(input_direction.x > 0):
+			collision_shape_2d.position = Vector2(265,-100)
+		else:
 			sprite_2d.scale.x = 1.1
+			collision_shape_2d.position = Vector2(265,-100)
+			
 		#velocity = input_direction*move_speed*delta
 		
 		if (input_direction == Vector2.ZERO):
