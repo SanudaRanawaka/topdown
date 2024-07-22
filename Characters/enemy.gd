@@ -29,7 +29,6 @@ func _physics_process(delta):
 			attack()
 			
 	if is_attacking == false:
-		
 		if (player_chase == false):
 			animation_tree.get("parameters/playback").travel("idle")
 		else:
@@ -44,7 +43,6 @@ func _on_animation_tree_animation_finished(anim_name):
 	#FOR SOME REASON THIS DOESNT RUN BUT IT STILL WORKS
 	if "attack" in anim_name:
 		is_attacking = false
-		print("false")
 	
 func attack():
 	print("attack")
