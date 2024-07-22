@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://4e8pfuauopab"]
+[gd_scene load_steps=39 format=3 uid="uid://4e8pfuauopab"]
 
 [ext_resource type="Script" path="res://Characters/enemy.gd" id="1_2g0ci"]
 [ext_resource type="Texture2D" uid="uid://y3vr5ue6dlyu" path="res://Assets/ryu punch.png" id="1_bwwdo"]
 [ext_resource type="PackedScene" uid="uid://8fy4at31o7y6" path="res://health_bar.tscn" id="3_rtoa7"]
+[ext_resource type="PackedScene" uid="uid://bqeh5nirfa15c" path="res://hurtbox.tscn" id="4_xjphb"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2iwr3"]
 animation = &"attack"
@@ -220,8 +221,8 @@ size = Vector2(1215, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_432rr"]
 size = Vector2(7897, 6964)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_io4x1"]
-size = Vector2(311, 740)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nbb00"]
+radius = 117.29
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -250,6 +251,7 @@ libraries = {
 
 [node name="Range" type="Area2D" parent="."]
 collision_layer = 2
+collision_mask = 16
 
 [node name="inRange" type="CollisionShape2D" parent="Range"]
 position = Vector2(148.5, -129)
@@ -262,17 +264,21 @@ collision_layer = 2
 position = Vector2(134.5, 27)
 shape = SubResource("RectangleShape2D_432rr")
 
-[node name="HurtBox" type="CollisionShape2D" parent="."]
-position = Vector2(113.5, 52)
-shape = SubResource("RectangleShape2D_io4x1")
-
 [node name="HealthBar" parent="." instance=ExtResource("3_rtoa7")]
 offset_left = -46.0
 offset_top = -452.0
 offset_right = 265.0
 offset_bottom = -409.0
 
+[node name="Hurtbox" parent="." instance=ExtResource("4_xjphb")]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(105, 13)
+shape = SubResource("CircleShape2D_nbb00")
+
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
-[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="body_entered" from="AggroArea" to="." method="_on_aggro_area_body_entered"]
 [connection signal="body_exited" from="AggroArea" to="." method="_on_aggro_area_body_exited"]
+[connection signal="took_damage" from="Hurtbox" to="." method="_on_hurtbox_took_damage"]

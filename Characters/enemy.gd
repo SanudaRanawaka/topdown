@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var move_speed : float = 0.75
+@export var knockback_str : int = 100
 @onready var sprite_2d = $Sprite2D
 @onready var animation_tree = $AnimationTree
 @onready var health_bar = $HealthBar
@@ -13,6 +14,8 @@ var is_attacking = false
 var player = null
 var player_chase = false
 var heading_towards
+var knockback_direction = Vector2.ZERO
+var knockback = Vector2.ZERO
 
 func _ready():
 	animation_tree.active= true
@@ -42,6 +45,8 @@ func _physics_process(delta):
 		animation_tree.set("parameters/idle/BlendSpace2D/blend_position", heading_towards)
 		animation_tree.set("parameters/walk/BlendSpace2D/blend_position", heading_towards)
 		animation_tree.set("parameters/attack/BlendSpace2D/blend_position", heading_towards)
+	knockback_direction = heading_towards
+	knockback = knockback.move_toward(Vector2.ZERO,200*delta)
 	move_and_slide()
 
 func _on_animation_tree_animation_finished(anim_name):
@@ -50,7 +55,6 @@ func _on_animation_tree_animation_finished(anim_name):
 		is_attacking = false
 	
 func attack():
-	print("attack")
 	animation_tree.get("parameters/playback").travel("attack")
 	is_attacking = true
 	cooldown = 1
@@ -66,10 +70,6 @@ func _on_aggro_area_body_exited(_body):
 	player = null
 	player_chase = false
 
-
-func _on_range_body_entered(body):
-	body.apply_damage(10)
-
 func apply_damage(amount):
 	if(armor>0):
 		amount = amount * ((100-armor)*0.01)
@@ -80,3 +80,11 @@ func apply_damage(amount):
 		cur_health = 0
 		health_bar._set_health(0)
 		queue_free()
+
+
+func _on_hurtbox_took_damage(amount):
+	apply_damage(amount)
+
+
+func _on_range_area_entered(area):
+	area.take_damage(10)
