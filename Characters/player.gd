@@ -20,22 +20,28 @@ func _ready():
 	emit_signal("update_health", cur_health)
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("basic_attack"):
-		move_speed = move_speed/8
-		animation_tree.get("parameters/playback").travel("basic_attack")
-		is_attacking = true
+	
+	if is_attacking:
+		move_speed = 25000
+	else: 
+		move_speed = 50000
 	
 	var input_direction = Vector2(
 	Input.get_action_strength("move_right")- Input.get_action_strength("move_left"),
 	Input.get_action_strength("move_down")- Input.get_action_strength("move_up")
 	).normalized()
 	
+	if Input.is_action_just_pressed("basic_attack"):
+		animation_tree.get("parameters/playback").travel("basic_attack")
+		is_attacking = true
+		position += input_direction*10
+	
 	if is_attacking == false:
 		if(input_direction.x < 0):
-			sprite_2d.flip_h = true
+			sprite_2d.scale.x = -1.1
 		elif(input_direction.x > 0):
-			sprite_2d.flip_h = false
-		velocity = input_direction*move_speed*delta
+			sprite_2d.scale.x = 1.1
+		#velocity = input_direction*move_speed*delta
 		
 		if (input_direction == Vector2.ZERO):
 			animation_tree.get("parameters/playback").travel("idle")
@@ -45,12 +51,12 @@ func _physics_process(delta):
 			animation_tree.set("parameters/idle/BlendSpace2D/blend_position", input_direction)
 			animation_tree.set("parameters/walk/BlendSpace2D/blend_position", input_direction)
 			animation_tree.set("parameters/basic_attack/BlendSpace2D/blend_position", input_direction)
+	velocity = input_direction*move_speed*delta
 	move_and_slide()
 	
 func _on_animation_tree_animation_finished(anim_name):
 	if "attack" in anim_name:
 		is_attacking = false
-		move_speed = move_speed*2
 		
 func apply_damage(amount):
 	if(armor>0):
@@ -74,3 +80,7 @@ func _on_timer_timeout():
 	Engine.time_scale = 1.0
 	get_tree().reload_current_scene()
 	print("Revived")
+
+
+func _on_hit_box_body_entered(body):
+	body.apply_damage(20)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://4e8pfuauopab"]
+[gd_scene load_steps=38 format=3 uid="uid://4e8pfuauopab"]
 
 [ext_resource type="Script" path="res://Characters/enemy.gd" id="1_2g0ci"]
 [ext_resource type="Texture2D" uid="uid://y3vr5ue6dlyu" path="res://Assets/ryu punch.png" id="1_bwwdo"]
+[ext_resource type="PackedScene" uid="uid://8fy4at31o7y6" path="res://health_bar.tscn" id="3_rtoa7"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2iwr3"]
 animation = &"attack"
@@ -261,9 +262,15 @@ collision_layer = 2
 position = Vector2(134.5, 27)
 shape = SubResource("RectangleShape2D_432rr")
 
-[node name="hitBox" type="CollisionShape2D" parent="."]
+[node name="HurtBox" type="CollisionShape2D" parent="."]
 position = Vector2(113.5, 52)
 shape = SubResource("RectangleShape2D_io4x1")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_rtoa7")]
+offset_left = -46.0
+offset_top = -452.0
+offset_right = 265.0
+offset_bottom = -409.0
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]

@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
-@export var move_speed : float = 1
+@export var move_speed : float = 0.75
 @onready var sprite_2d = $Sprite2D
 @onready var animation_tree = $AnimationTree
+@onready var health_bar = $HealthBar
 
+@onready var max_health = 100
+@onready var cur_health = max_health
+var armor = 0
 var cooldown = 1
 var is_attacking = false
 var player = null
@@ -12,6 +16,7 @@ var heading_towards
 
 func _ready():
 	animation_tree.active= true
+	health_bar.init_health(100)
 
 func _physics_process(delta):
 	if cooldown >0:
@@ -64,3 +69,14 @@ func _on_aggro_area_body_exited(_body):
 
 func _on_range_body_entered(body):
 	body.apply_damage(10)
+
+func apply_damage(amount):
+	if(armor>0):
+		amount = amount * ((100-armor)*0.01)
+	if(cur_health > amount):
+		cur_health -= amount
+		health_bar._set_health(cur_health)
+	else:
+		cur_health = 0
+		health_bar._set_health(0)
+		queue_free()
