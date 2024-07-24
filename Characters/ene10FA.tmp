@@ -228,6 +228,10 @@ radius = 117.29
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_2g0ci")
+move_speed = null
+knockback_str = null
+atk_power = null
+health = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(67, -148)
@@ -277,13 +281,8 @@ collision_layer = 32
 position = Vector2(105, 13)
 shape = SubResource("CircleShape2D_nbb00")
 
-[node name="stuntimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="body_entered" from="AggroArea" to="." method="_on_aggro_area_body_entered"]
 [connection signal="body_exited" from="AggroArea" to="." method="_on_aggro_area_body_exited"]
 [connection signal="took_damage" from="Hurtbox" to="." method="_on_hurtbox_took_damage"]
-[connection signal="timeout" from="stuntimer" to="." method="_on_stuntimer_timeout"]

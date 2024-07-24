@@ -14,6 +14,7 @@ signal update_health(amount)
 @export var atk_number: int = 3
 @export var atk_power: int = 20
 @export var knockback_strength: int = 250
+@onready var hurtbox = $Hurtbox
 
 #---Export Variables End---#
 #---Variables Start---#
@@ -84,9 +85,10 @@ func finished_attacking():
 func remove_atk_number():
 	atk_number -= 1
 
-func apply_damage(amount):
+func apply_damage(amount, knockedback):
 	if(armor>0):
 		amount = amount * ((100-armor)*0.01)
+	knockback = knockedback
 	if(cur_health > amount):
 		cur_health -= amount
 		update_health.emit(amount*-1)
@@ -97,19 +99,11 @@ func apply_damage(amount):
 		die()
 
 func die():
+	hurtbox.disable_mode = true
 	Engine.time_scale = 0.5
 	print("YA SUCC")
 	respawn_timer.start()
-
-
-func _on_timer_timeout():
-	Engine.time_scale = 1.0
-	get_tree().reload_current_scene()
-	print("Revived")
-
-
-#func _on_hit_box_body_entered(body):
-	#body.apply_damage(20)
+	print(respawn_timer.time_left)
 
 func move():
 	move_and_slide()
@@ -127,5 +121,11 @@ func _on_hit_box_area_entered(area):
 		
 
 #when entity gets hit by an enemy hitbox
-func _on_hurtbox_took_damage(amount):
-	apply_damage(amount)
+func _on_hurtbox_took_damage(amount, knockedback):
+	apply_damage(amount, knockedback)
+
+
+func _on_respawn_timeout():
+	Engine.time_scale = 1.0
+	get_tree().reload_current_scene()
+	print("Revived")
