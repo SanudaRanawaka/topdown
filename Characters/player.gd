@@ -12,14 +12,18 @@ signal update_health(amount)
 @export var friction : float = 0.125
 @export var acceleration : int = 40
 @export var atk_number: int = 3
+@export var atk_power: int = 20
+@export var knockback_strength: int = 250
 
 #---Export Variables End---#
 #---Variables Start---#
 var is_moving = false
 var is_attacking = false
+var knockback_direction = Vector2.ZERO
+var knockback = Vector2.ZERO
 #---Variables End---#
 @onready var respawn_timer = $respawn
-
+@onready var input_dir = Vector2.ZERO
 @onready var max_health = 100
 @onready var cur_health = max_health
 var armor = 0
@@ -30,19 +34,23 @@ func _ready():
 	emit_signal("update_health", cur_health)
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	#---Movement Start--#
+	if cur_health <= 0:
+		die()
+	knockback = knockback.move_toward(Vector2.ZERO, 200*delta)
 	if is_attacking == false:
 		var input_direction = Vector2(
 		Input.get_action_strength("move_right")- Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down")- Input.get_action_strength("move_up")
 		).normalized()
 		
-		velocity = input_direction*move_speed
+		velocity = input_direction*move_speed + knockback 
 		
 		if (input_direction == Vector2.ZERO):
 			animation_tree.get("parameters/playback").travel("idle")
 		else:
+			input_dir = input_direction
 			animation_tree.get("parameters/playback").travel("walk")
 			animation_tree.set("parameters/idle/BlendSpace2D/blend_position", input_direction)
 			animation_tree.set("parameters/walk/BlendSpace2D/blend_position", input_direction)
@@ -106,14 +114,17 @@ func _on_timer_timeout():
 func move():
 	move_and_slide()
 
-
 func _on_atk_timer_timeout():
 	atk_number = 3
 	is_attacking = false
 
 #when entity hits a enemy hurtbox
 func _on_hit_box_area_entered(area):
-	area.take_damage(20)
+	if area.is_in_group("Enemy"):
+		knockback_direction = input_dir
+		print(knockback_direction.normalized())
+		area.take_damage(20,knockback_strength*knockback_direction)
+		
 
 #when entity gets hit by an enemy hitbox
 func _on_hurtbox_took_damage(amount):
