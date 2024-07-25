@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvuk1hyp0px6m"]
+
+[ext_resource type="Script" path="res://scenes/abilities/fireball/fireball.gd" id="1_jo3ah"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_jo3ah")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

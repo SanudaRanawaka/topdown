@@ -28,7 +28,7 @@ var stunned = false
 @onready var max_health = 100
 @onready var cur_health = max_health
 var armor = 0
-var cooldown = 1
+var cooldown = 2
 var player = null
 var is_attacking = false
 
@@ -44,37 +44,37 @@ func _physics_process(delta):
 		Death()
 	if cooldown >0:
 		cooldown -= 1*delta
-	if stunned == false:
-		if is_attacking == false:
-			if see_player:
-				animation_tree.get("parameters/playback").travel("walk")
-				accelerate_towards_points(player, delta)
-				move_and_slide()
-				if(mov_direction.x < 0):
-					sprite_2d.flip_h = true
-				elif(mov_direction.x > 0):
-					sprite_2d.flip_h = false
-				if mov_distance.length() <= 100:
-					attack()
-			else:
-				animation_tree.get("parameters/playback").travel("idle")
-				
-		knocking_direction = mov_direction
-		knockback = knockback.move_toward(Vector2.ZERO, 200*delta)
-		animation_tree.set("parameters/idle/BlendSpace2D/blend_position", mov_direction)
-		animation_tree.set("parameters/walk/BlendSpace2D/blend_position", mov_direction)
-		animation_tree.set("parameters/attack/BlendSpace2D/blend_position", mov_direction)
+	if see_player and stunned == false:
+		animation_tree.get("parameters/playback").travel("walk")
+		accelerate_towards_points(player, delta)
+		#move_and_slide()
+		if(mov_direction.x < 0):
+			sprite_2d.flip_h = true
+		elif(mov_direction.x > 0):
+			sprite_2d.flip_h = false
+		if mov_distance.length() <= 100:
+			attack()
+	else:
+		velocity = Vector2.ZERO
+		animation_tree.get("parameters/playback").travel("idle")
+	knocking_direction = mov_direction
+	knockback = knockback.move_toward(Vector2.ZERO, delta*100)
+	velocity.move_toward(knockback, delta*100)
+	animation_tree.set("parameters/idle/BlendSpace2D/blend_position", mov_direction)
+	animation_tree.set("parameters/walk/BlendSpace2D/blend_position", mov_direction)
+	animation_tree.set("parameters/attack/BlendSpace2D/blend_position", mov_direction)
 	#---tutorial end---#
-
+	velocity += knockback*2
+	move_and_slide()
 func accelerate_towards_points(point, delta):
 	var movement = mov_direction * move_speed
 	mov_distance = (point.position - position)
 	mov_direction = (point.position - position).normalized()
-	if mov_distance.length() <= 10:
+	if mov_distance.length() <= 100:
 		mov_direction = Vector2.ZERO
 	
-	velocity = movement + (knockback * 2)
-	velocity = velocity.move_toward(mov_direction*move_speed, 200*delta)
+	velocity = movement
+	velocity = velocity.move_toward(mov_direction*move_speed, delta)
 	animation_tree.get("parameters/playback").travel("walk")
 	animation_tree.set("parameters/idle/BlendSpace2D/blend_position", mov_direction)
 	animation_tree.set("parameters/walk/BlendSpace2D/blend_position",  mov_direction)
@@ -89,7 +89,7 @@ func attack():
 	if stunned == false:
 		animation_tree.get("parameters/playback").travel("attack")
 		is_attacking = true
-		cooldown = 1
+		cooldown = 2
 
 func _on_aggro_area_body_entered(body):
 	if body.name == "Player":
@@ -108,7 +108,8 @@ func _on_aggro_area_body_exited(body):
 
 func _on_hurtbox_took_damage(amount, knockbacked):
 	stunned = true
-	print("stunned")
+	stun_timer.wait_time = 0.5
+	print(knockbacked.length())
 	stun_timer.start()
 	if(armor>0):
 		amount = amount * ((100-armor)*0.01)
@@ -120,6 +121,8 @@ func _on_hurtbox_took_damage(amount, knockbacked):
 		cur_health = 0
 		health_bar._set_health(0)
 		Death()
+	
+	#if stun tru disable enemy input movement and ataacks but not overall movement
 
 func _on_range_area_entered(area):
 	area.take_damage(10, knockback_strength*knocking_direction)
@@ -128,4 +131,6 @@ func Death():
 	queue_free()
 
 func _on_stuntimer_timeout():
+	print("stund omne")
 	stunned = false
+	knockback = Vector2.ZERO

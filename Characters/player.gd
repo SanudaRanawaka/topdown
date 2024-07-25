@@ -13,7 +13,7 @@ signal update_health(amount)
 @export var acceleration : int = 40
 @export var atk_number: int = 3
 @export var atk_power: int = 20
-@export var knockback_strength: int = 250
+@export var knockback_strength: int = 10
 @onready var hurtbox = $Hurtbox
 
 #---Export Variables End---#
@@ -27,12 +27,17 @@ var knockback = Vector2.ZERO
 @onready var input_dir = Vector2.ZERO
 @onready var max_health = 100
 @onready var cur_health = max_health
+@onready var ability_names = ["","","",""]
+@onready var abilities = [0,0,0,0]
 var armor = 0
 
 
 func _ready():
 	animation_tree.active= true
 	emit_signal("update_health", cur_health)
+	ability_names = ["","","",""]
+	abilities = [0,0,0,0]
+	abilities[0] = load_ability("fireball",0)
 
 
 func _physics_process(delta):
@@ -61,6 +66,10 @@ func _physics_process(delta):
 		move()
 	attack_combo()
 	#---Movement End--#
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ability1"):
+		use_move(0)
 
 #copy pasting probably a better way
 func attack_combo():
@@ -116,7 +125,6 @@ func _on_atk_timer_timeout():
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("Enemy"):
 		knockback_direction = input_dir
-		print(knockback_direction.normalized())
 		area.take_damage(20,knockback_strength*knockback_direction)
 		
 
@@ -129,3 +137,26 @@ func _on_respawn_timeout():
 	Engine.time_scale = 1.0
 	get_tree().reload_current_scene()
 	print("Revived")
+	
+#--- NEW SHIT ---#
+func load_ability(move_name, slot_number = 0):
+	var scene = load("res://scenes/abilities/"+move_name+"/"+move_name+".tscn")
+	print(scene)
+	if scene != null:
+		var sceneNode = scene.instantiate()
+		add_child(sceneNode)
+		if(slot_number>=0):
+			ability_names[slot_number]=move_name
+			abilities[slot_number] = sceneNode
+			print(sceneNode.name)
+		else:
+			print("unable to load ability to given slot")
+		return sceneNode
+	return -1
+
+func use_move(slot):
+	if ability_names[slot] == "":
+		print("no move equipped")
+	else:
+		print("WAAAAAAH")
+		abilities[slot].execute(self, input_dir)
