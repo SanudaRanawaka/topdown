@@ -24,7 +24,7 @@ func _physics_process(_delta):
 		self.queue_free()
 
 func move():
-	moved+=1
+	moved+=10
 	velocity = Vector2()
 	velocity.x = direction.x
 	velocity.y = direction.y

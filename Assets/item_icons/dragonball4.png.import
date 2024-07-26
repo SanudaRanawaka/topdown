@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qsak6uimk4j2"
-path="res://.godot/imported/dragonball2.png-9a9cad85c665ae6e610b60982295d7cd.ctex"
+uid="uid://v2vecqjpe3ig"
+path="res://.godot/imported/dragonball4.png-f88ccd02ae629632f7d0245e1cc414f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/dragonball2.png"
-dest_files=["res://.godot/imported/dragonball2.png-9a9cad85c665ae6e610b60982295d7cd.ctex"]
+source_file="res://Assets/item_icons/dragonball4.png"
+dest_files=["res://.godot/imported/dragonball4.png-f88ccd02ae629632f7d0245e1cc414f9.ctex"]
 
 [params]
 

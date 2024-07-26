@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0pjet7x7xcp2"
-path="res://.godot/imported/dragonball3.png-5a77563d0bc2c3c0a2db72d1ea787797.ctex"
+uid="uid://ddhjm1eiy6tco"
+path="res://.godot/imported/inventoryslotfill.png-dc49ddb0e0ebc5ad963fb3eac75de9d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/dragonball3.png"
-dest_files=["res://.godot/imported/dragonball3.png-5a77563d0bc2c3c0a2db72d1ea787797.ctex"]
+source_file="res://Assets/inventoryslotfill.png"
+dest_files=["res://.godot/imported/inventoryslotfill.png-dc49ddb0e0ebc5ad963fb3eac75de9d0.ctex"]
 
 [params]
 
