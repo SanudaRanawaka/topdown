@@ -13,7 +13,7 @@ signal update_health(amount)
 @export var acceleration : int = 40
 @export var atk_number: int = 3
 @export var atk_power: int = 20
-@export var knockback_strength: int = 10
+@export var knockback_strength: int = 50
 @onready var hurtbox = $Hurtbox
 
 #---Export Variables End---#

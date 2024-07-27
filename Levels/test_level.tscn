@@ -13,7 +13,6 @@ ui = NodePath("UI")
 
 [node name="Player" parent="." instance=ExtResource("1_xfni2")]
 z_index = 1
-scale = Vector2(0.5, 0.5)
 
 [node name="Enemy" parent="." instance=ExtResource("2_hsetq")]
 z_index = 1

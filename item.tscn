@@ -22,3 +22,11 @@ pivot_offset = Vector2(-32, -32)
 mouse_filter = 2
 texture = ExtResource("2_wkij8")
 stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 80.0
+offset_right = 140.0
+offset_bottom = 103.0
+scale = Vector2(2, 2)
+text = "99"

@@ -1,0 +1,7 @@
+{
+  "Senzu Bean": {
+	"ItemCategory": Resource,
+	"StackSize":99,
+	"Description": "They look like normal lima beans. Despite their innocuous appearance, these legumes hold incredible power inside for whoever eats them."},
+}
+
