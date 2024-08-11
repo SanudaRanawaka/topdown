@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmp86bxbsyix6"]
+
+[ext_resource type="PackedScene" uid="uid://dewu4oxmfevf" path="res://Characters/Utilities/hurtboxdupe.tscn" id="1_rgfrd"]
+[ext_resource type="Script" path="res://Characters/npc.gd" id="1_x05wj"]
+[ext_resource type="Texture2D" uid="uid://b2kft2qbmsfgh" path="res://Assets/WaRunStand1.png" id="2_0btvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vb7i"]
+size = Vector2(53, 195)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4iju"]
+size = Vector2(44, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8roq"]
+size = Vector2(251, 305)
+
+[node name="NPC" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_x05wj")
+
+[node name="Hurtbox" parent="." instance=ExtResource("1_rgfrd")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(1.5, 3.5)
+shape = SubResource("RectangleShape2D_8vb7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_m4iju")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_0btvg")
+
+[node name="ChatDetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea"]
+position = Vector2(6.5, -5.5)
+shape = SubResource("RectangleShape2D_i8roq")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

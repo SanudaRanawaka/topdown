@@ -131,6 +131,5 @@ func Death():
 	queue_free()
 
 func _on_stuntimer_timeout():
-	print("stund omne")
 	stunned = false
 	knockback = Vector2.ZERO

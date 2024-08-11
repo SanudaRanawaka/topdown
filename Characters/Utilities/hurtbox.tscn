@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqeh5nirfa15c"]
 
-[ext_resource type="Script" path="res://Characters/Hurtbox.gd" id="1_7jonf"]
+[ext_resource type="Script" path="res://Characters/Utilities/Hurtbox.gd" id="1_h3eyw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io4x1"]
 size = Vector2(311, 740)
@@ -8,7 +8,7 @@ size = Vector2(311, 740)
 [node name="Hurtbox" type="Area2D"]
 collision_layer = 4
 monitoring = false
-script = ExtResource("1_7jonf")
+script = ExtResource("1_h3eyw")
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 position = Vector2(113.5, 52)

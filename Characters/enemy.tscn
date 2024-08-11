@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Characters/enemy.gd" id="1_2g0ci"]
 [ext_resource type="Texture2D" uid="uid://y3vr5ue6dlyu" path="res://Assets/ryu punch.png" id="1_bwwdo"]
-[ext_resource type="PackedScene" uid="uid://8fy4at31o7y6" path="res://health_bar.tscn" id="3_rtoa7"]
-[ext_resource type="PackedScene" uid="uid://bqeh5nirfa15c" path="res://hurtbox.tscn" id="4_xjphb"]
+[ext_resource type="PackedScene" uid="uid://8fy4at31o7y6" path="res://Characters/Utilities/health_bar.tscn" id="3_qoxfd"]
+[ext_resource type="PackedScene" uid="uid://bqeh5nirfa15c" path="res://Characters/Utilities/hurtbox.tscn" id="4_txg47"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2iwr3"]
 animation = &"attack"
@@ -265,13 +265,13 @@ collision_layer = 2
 position = Vector2(134.5, 27)
 shape = SubResource("RectangleShape2D_432rr")
 
-[node name="HealthBar" parent="." instance=ExtResource("3_rtoa7")]
+[node name="HealthBar" parent="." instance=ExtResource("3_qoxfd")]
 offset_left = -46.0
 offset_top = -452.0
 offset_right = 265.0
 offset_bottom = -409.0
 
-[node name="Hurtbox" parent="." groups=["Enemy"] instance=ExtResource("4_xjphb")]
+[node name="Hurtbox" parent="." groups=["Enemy"] instance=ExtResource("4_txg47")]
 collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -2,15 +2,17 @@ extends CharacterBody2D
 class_name Player
 
 signal update_health(amount)
-
+signal start_dialogue(dialogue_name)
 #---Export Variables Start---#
 @onready var atk_timer = $atk_timer
 @onready var sprite_2d = $Sprite2D
 @onready var animation_tree = $AnimationTree
 @onready var animation_player = $AnimationPlayer
 @export var move_speed : int = 500
-@export var friction : float = 0.125
-@export var acceleration : int = 40
+#@export var friction : float = 0.125
+#@export var acceleration : int = 40
+@export var morale: int = 100
+@export var card_collection = []
 @export var atk_number: int = 3
 @export var atk_power: int = 20
 @export var knockback_strength: int = 50
@@ -160,3 +162,12 @@ func use_move(slot):
 	else:
 		print("WAAAAAAH")
 		abilities[slot].execute(self, input_dir)
+		
+func add_card(number):
+	card_collection.append(number)
+	card_collection.sort()
+	print(card_collection)
+	
+func activate_chat(dialogue_name):
+	emit_signal("start_dialogue",dialogue_name)
+	print("player activate chat")

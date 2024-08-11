@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_4vq2i"]
 [ext_resource type="Texture2D" uid="uid://c25in0ypeorve" path="res://Assets/ryu punch red.png" id="2_pa6fb"]
-[ext_resource type="PackedScene" uid="uid://bqeh5nirfa15c" path="res://hurtbox.tscn" id="3_fx753"]
+[ext_resource type="PackedScene" uid="uid://bqeh5nirfa15c" path="res://Characters/Utilities/hurtbox.tscn" id="3_qkpdq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8ar8"]
 radius = 62.2013
@@ -1092,7 +1092,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngilh"]
 size = Vector2(200, 186.001)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_4vq2i")
 
@@ -1151,7 +1151,7 @@ shape = SubResource("RectangleShape2D_ngilh")
 [node name="atk_timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Hurtbox" parent="." instance=ExtResource("3_fx753")]
+[node name="Hurtbox" parent="." instance=ExtResource("3_qkpdq")]
 position = Vector2(-20, 0)
 scale = Vector2(0.5, 0.5)
 collision_layer = 16
