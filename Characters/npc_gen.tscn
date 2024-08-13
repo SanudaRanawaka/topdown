@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb7hd0rjap887"]
+[gd_scene load_steps=6 format=3 uid="uid://cb7hd0rjap887"]
 
 [ext_resource type="Script" path="res://NPC_gen.gd" id="1_4g0bm"]
 [ext_resource type="Texture2D" uid="uid://b2kft2qbmsfgh" path="res://Assets/WaRunStand1.png" id="2_gyl7q"]
@@ -6,25 +6,38 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap274"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4u1a"]
+size = Vector2(9.83333, 28.6667)
+
 [node name="NPC_Gen" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_4g0bm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_gyl7q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ap274")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Hurtbox" parent="." instance=ExtResource("3_te3q6")]
 position = Vector2(-93, -40)
+collision_layer = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_ap274")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(93.25, 49)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_q4u1a")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -66.0
-offset_top = -573.0
-offset_right = 82.0
-offset_bottom = -461.0
-theme_override_font_sizes/font_size = 74
+offset_left = -10.0
+offset_top = -67.0
+offset_right = 14.0
+offset_bottom = -49.0
+theme_override_font_sizes/font_size = 12
 text = "Talk"
+
+[connection signal="become_highlighted" from="Hurtbox" to="." method="_on_hurtbox_become_highlighted"]

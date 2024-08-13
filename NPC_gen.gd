@@ -68,6 +68,8 @@ func _on_timer_timeout():
 	if !is_chatting:
 		timer.start()
 
-func interact_highlight():
-	print(self.name + " am Highlighted")
-	label.set_visible(true)
+func _on_hurtbox_become_highlighted(indicator):
+	if indicator:
+		print(self.name + " am Highlighted")
+		print(indicator)
+	label.set_visible(indicator)

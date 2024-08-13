@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://4e8pfuauopab"]
+[gd_scene load_steps=40 format=3 uid="uid://4e8pfuauopab"]
 
 [ext_resource type="Script" path="res://Characters/enemy.gd" id="1_2g0ci"]
 [ext_resource type="Texture2D" uid="uid://y3vr5ue6dlyu" path="res://Assets/ryu punch.png" id="1_bwwdo"]
@@ -221,11 +221,13 @@ size = Vector2(1215, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_432rr"]
 size = Vector2(7897, 6964)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmchw"]
+size = Vector2(394, 790)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_nbb00"]
 radius = 117.29
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_2g0ci")
@@ -273,6 +275,10 @@ offset_bottom = -409.0
 
 [node name="Hurtbox" parent="." groups=["Enemy"] instance=ExtResource("4_txg47")]
 collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(135, 59)
+shape = SubResource("RectangleShape2D_fmchw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(105, 13)

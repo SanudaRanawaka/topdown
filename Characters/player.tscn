@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://6n1yf4i04di1"]
+[gd_scene load_steps=68 format=3 uid="uid://6n1yf4i04di1"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_4vq2i"]
 [ext_resource type="Texture2D" uid="uid://c25in0ypeorve" path="res://Assets/ryu punch red.png" id="2_pa6fb"]
@@ -1093,6 +1093,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngilh"]
 size = Vector2(200, 186.001)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdvkf"]
+size = Vector2(59.2, 124)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khwh8"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -1159,6 +1162,11 @@ position = Vector2(-20, 0)
 scale = Vector2(0.5, 0.5)
 collision_layer = 16
 collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(68, -9.99999)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wdvkf")
 
 [node name="InteractDetect" type="Area2D" parent="."]
 position = Vector2(-20, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cq18em1fkqkav"]
+[gd_scene load_steps=10 format=3 uid="uid://cq18em1fkqkav"]
 
 [ext_resource type="Script" path="res://Levels/test_level.gd" id="1_357ew"]
 [ext_resource type="PackedScene" uid="uid://6n1yf4i04di1" path="res://Characters/player.tscn" id="1_xfni2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://biqf5rtvofb01" path="res://card.tscn" id="7_ghcf8"]
 [ext_resource type="PackedScene" uid="uid://1y62i7xh4k2l" path="res://Levels/konoha.tscn" id="8_e22cp"]
 [ext_resource type="PackedScene" uid="uid://ddhfoig5hd3sc" path="res://Items/itemdrop.tscn" id="8_ltl5e"]
+[ext_resource type="PackedScene" uid="uid://cb7hd0rjap887" path="res://Characters/npc_gen.tscn" id="9_gjt8u"]
 
 [node name="TestLevel" type="Node2D" node_paths=PackedStringArray("player", "ui")]
 script = ExtResource("1_357ew")
@@ -16,7 +17,7 @@ ui = NodePath("UI")
 
 [node name="Player" parent="." instance=ExtResource("1_xfni2")]
 z_index = 2
-position = Vector2(-966, 1373)
+position = Vector2(67, 1760)
 
 [node name="Enemy" parent="." instance=ExtResource("2_hsetq")]
 z_index = 1
@@ -26,6 +27,7 @@ scale = Vector2(0.25, 0.25)
 [node name="UI" parent="." instance=ExtResource("5_7l7k0")]
 
 [node name="NPC" parent="." instance=ExtResource("6_7dl6h")]
+visible = false
 z_index = 1
 position = Vector2(-33, 837)
 
@@ -42,3 +44,7 @@ position = Vector2(-544, 1179)
 
 [node name="itemdrop2" parent="." instance=ExtResource("8_ltl5e")]
 position = Vector2(-426, 1205)
+
+[node name="NPC_Gen" parent="." instance=ExtResource("9_gjt8u")]
+position = Vector2(-262, 1737)
+scale = Vector2(2, 2)

@@ -77,6 +77,7 @@ func _process(_delta: float) -> void:
 		use_move(0)
 	if interact_detect.interact_list != []:
 		highlight_interact()
+	print(nearest_item_test)	
 
 #copy pasting probably a better way
 func attack_combo():
@@ -193,8 +194,10 @@ func highlight_interact():
 	nearest_item_test = nearest_item
 	nearest_item_test.call_highlight(true)
 	
-	
 
 func _on_interact_detect_no_interact():
 	nearest_item_test.call_highlight(false)
 	nearest_item_test = null
+
+#func interact(interactable):
+#	
