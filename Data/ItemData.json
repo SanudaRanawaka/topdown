@@ -1,7 +1,36 @@
 {
   "Senzu Bean": {
-	"ItemCategory": Resource,
+	"ItemCategory": "Resource",
 	"StackSize":99,
 	"Description": "They look like normal lima beans. Despite their innocuous appearance, these legumes hold incredible power inside for whoever eats them."},
+  "1 Star Dragon Ball": {
+	"ItemCategory": "Special",
+	"StackSize":99,
+	"Description": "A special looking orange ball with a red star inside it"},
+  "2 Star Dragon Ball": {
+	"ItemCategory": "Special",
+	"StackSize":99,
+	"Description": "A special looking orange ball with 2 red stars inside it"},
+  "3 Star Dragon Ball": {
+	"ItemCategory": "Special",
+	"StackSize":99,
+	"Description": "A special looking orange ball with 3 red stars inside it"},
+  "4 Star Dragon Ball": {
+	"ItemCategory": "Special",
+	"StackSize":99,
+	"Description": "A special looking orange ball with 4 red stars inside it"},
+  "5 Star Dragon Ball": {
+	"ItemCategory": "Special",
+	"StackSize":99,
+	"Description": "A special looking orange ball with 5 red stars inside it"},
+  "6 Star Dragon Ball": {
+	"ItemCategory": "Special",
+	"StackSize":99,
+	"Description": "A special looking orange ball with 6 red stars inside it"},
+  "7 Star Dragon Ball": {
+	"ItemCategory": "Special",
+	"StackSize":99,
+	"Description": "A special looking orange ball with 7 red stars inside it"},
+
 }
 
