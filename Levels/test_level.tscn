@@ -26,7 +26,7 @@ scale = Vector2(0.25, 0.25)
 
 [node name="NPC" parent="." instance=ExtResource("6_7dl6h")]
 z_index = 1
-position = Vector2(-1112, 109)
+position = Vector2(-44, 840)
 
 [node name="Card" parent="." instance=ExtResource("7_ghcf8")]
 z_index = 1
@@ -38,3 +38,6 @@ scale = Vector2(10, 10)
 
 [node name="itemdrop" parent="." instance=ExtResource("8_ltl5e")]
 position = Vector2(-544, 1179)
+
+[node name="itemdrop2" parent="." instance=ExtResource("8_ltl5e")]
+position = Vector2(-426, 1205)

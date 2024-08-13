@@ -18,6 +18,8 @@ collision_layer = 2
 script = ExtResource("1_x05wj")
 
 [node name="Hurtbox" parent="." instance=ExtResource("1_rgfrd")]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(1.5, 3.5)
@@ -33,7 +35,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_0btvg")
 
 [node name="ChatDetectionArea" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea"]
 position = Vector2(6.5, -5.5)

@@ -65,7 +65,6 @@ func _on_chat_detection_area_body_entered(body):
 		print("npc bolla")
 		player_in_chat_zone = true
 
-
 func _on_chat_detection_area_body_exited(body):
 	if body.is_in_group("Player"):
 		print("npc bye bye")
@@ -76,7 +75,6 @@ func _on_chat_detection_area_body_exited(body):
 		direction = choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN])
 		timer.start()
 
-
 func _on_timer_timeout():
 	timer.wait_time = choose([0.5,1,1.5])
 	current_state = choose([IDLE, NEW_DIR, MOVE])
@@ -84,4 +82,5 @@ func _on_timer_timeout():
 	if !is_chatting:
 		timer.start()
 
-
+func interact_highlight():
+	print(self.name + " am Highlighted")

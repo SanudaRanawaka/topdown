@@ -1,8 +1,9 @@
-[gd_scene load_steps=65 format=3 uid="uid://6n1yf4i04di1"]
+[gd_scene load_steps=67 format=3 uid="uid://6n1yf4i04di1"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_4vq2i"]
 [ext_resource type="Texture2D" uid="uid://c25in0ypeorve" path="res://Assets/ryu punch red.png" id="2_pa6fb"]
 [ext_resource type="PackedScene" uid="uid://bqeh5nirfa15c" path="res://Characters/Utilities/hurtbox.tscn" id="3_qkpdq"]
+[ext_resource type="Script" path="res://Characters/InteractDetect.gd" id="4_0aiat"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8ar8"]
 radius = 62.2013
@@ -1092,6 +1093,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngilh"]
 size = Vector2(200, 186.001)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khwh8"]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_4vq2i")
@@ -1157,7 +1160,21 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 16
 collision_mask = 4
 
+[node name="InteractDetect" type="Area2D" parent="."]
+position = Vector2(-20, 0)
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_0aiat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractDetect"]
+position = Vector2(104, -16)
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_khwh8")
+
 [connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
 [connection signal="area_entered" from="Marker2D/HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="atk_timer" to="." method="_on_atk_timer_timeout"]
 [connection signal="took_damage" from="Hurtbox" to="." method="_on_hurtbox_took_damage"]
+[connection signal="area_entered" from="InteractDetect" to="InteractDetect" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractDetect" to="InteractDetect" method="_on_area_exited"]

@@ -8,6 +8,8 @@ signal start_dialogue(dialogue_name)
 @onready var sprite_2d = $Sprite2D
 @onready var animation_tree = $AnimationTree
 @onready var animation_player = $AnimationPlayer
+@onready var interact_detect = $InteractDetect
+
 @export var move_speed : int = 500
 #@export var friction : float = 0.125
 #@export var acceleration : int = 40
@@ -72,6 +74,8 @@ func _physics_process(delta):
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ability1"):
 		use_move(0)
+	if interact_detect.interact_list != []:
+		highlight_interact()
 
 #copy pasting probably a better way
 func attack_combo():
@@ -171,3 +175,17 @@ func add_card(number):
 func activate_chat(dialogue_name):
 	emit_signal("start_dialogue",dialogue_name)
 	print("player activate chat")
+	
+func highlight_interact():
+	if interact_detect.interact_list.size() < 1:
+		print("-1")
+	else:
+		var nearest_item = null
+		var item_dist = 4096
+		var item_dist_new = 4096
+		for i in interact_detect.interact_list:
+			item_dist_new = (i.get_parent().position - self.position).length()
+			if item_dist_new <= item_dist and item_dist_new > 0:
+				nearest_item = i
+		print(nearest_item)
+	
