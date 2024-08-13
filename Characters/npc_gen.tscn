@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb7hd0rjap887"]
+
+[ext_resource type="Script" path="res://NPC_gen.gd" id="1_4g0bm"]
+[ext_resource type="Texture2D" uid="uid://b2kft2qbmsfgh" path="res://Assets/WaRunStand1.png" id="2_gyl7q"]
+[ext_resource type="PackedScene" uid="uid://bqeh5nirfa15c" path="res://Characters/Utilities/hurtbox.tscn" id="3_te3q6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap274"]
+
+[node name="NPC_Gen" type="CharacterBody2D"]
+script = ExtResource("1_4g0bm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gyl7q")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_te3q6")]
+position = Vector2(-93, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_ap274")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -66.0
+offset_top = -573.0
+offset_right = 82.0
+offset_bottom = -461.0
+theme_override_font_sizes/font_size = 74
+text = "Talk"

@@ -16,6 +16,7 @@ ui = NodePath("UI")
 
 [node name="Player" parent="." instance=ExtResource("1_xfni2")]
 z_index = 2
+position = Vector2(-966, 1373)
 
 [node name="Enemy" parent="." instance=ExtResource("2_hsetq")]
 z_index = 1
@@ -26,7 +27,7 @@ scale = Vector2(0.25, 0.25)
 
 [node name="NPC" parent="." instance=ExtResource("6_7dl6h")]
 z_index = 1
-position = Vector2(-44, 840)
+position = Vector2(-33, 837)
 
 [node name="Card" parent="." instance=ExtResource("7_ghcf8")]
 z_index = 1

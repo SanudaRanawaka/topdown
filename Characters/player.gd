@@ -26,6 +26,7 @@ var is_moving = false
 var is_attacking = false
 var knockback_direction = Vector2.ZERO
 var knockback = Vector2.ZERO
+var nearest_item_test = null
 #---Variables End---#
 @onready var respawn_timer = $respawn
 @onready var input_dir = Vector2.ZERO
@@ -177,15 +178,23 @@ func activate_chat(dialogue_name):
 	print("player activate chat")
 	
 func highlight_interact():
-	if interact_detect.interact_list.size() < 1:
-		print("-1")
-	else:
-		var nearest_item = null
-		var item_dist = 4096
-		var item_dist_new = 4096
-		for i in interact_detect.interact_list:
-			item_dist_new = (i.get_parent().position - self.position).length()
-			if item_dist_new <= item_dist and item_dist_new > 0:
-				nearest_item = i
-		print(nearest_item)
+	var nearest_item = null
+	var item_dist = 4096
+	var item_dist_new = 4096
+	for i in interact_detect.interact_list:
+		item_dist_new = (i.get_parent().position - self.position).length()
+		if item_dist_new <= item_dist:
+			#if nearest_item != null:
+				#nearest_item.call_highlight(false)
+			nearest_item = i
+			#nearest_item.call_highlight(true)
+			if nearest_item != nearest_item_test and nearest_item_test != null :
+				nearest_item_test.call_highlight(false)
+	nearest_item_test = nearest_item
+	nearest_item_test.call_highlight(true)
 	
+	
+
+func _on_interact_detect_no_interact():
+	nearest_item_test.call_highlight(false)
+	nearest_item_test = null

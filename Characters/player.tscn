@@ -1178,3 +1178,4 @@ shape = SubResource("RectangleShape2D_khwh8")
 [connection signal="took_damage" from="Hurtbox" to="." method="_on_hurtbox_took_damage"]
 [connection signal="area_entered" from="InteractDetect" to="InteractDetect" method="_on_area_entered"]
 [connection signal="area_exited" from="InteractDetect" to="InteractDetect" method="_on_area_exited"]
+[connection signal="no_interact" from="InteractDetect" to="." method="_on_interact_detect_no_interact"]
