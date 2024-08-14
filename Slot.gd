@@ -16,9 +16,9 @@ func _ready():
 	default_style.texture = default_tex
 	empty_style.texture = empty_tex
 	
-	if randi() % 2 == 0:
-		item = ItemClass.instantiate()
-		add_child(item)
+	#if randi() % 2 == 0:
+		#item = ItemClass.instantiate()
+		#add_child(item)
 	refresh_style()
 
 func refresh_style():
@@ -40,4 +40,13 @@ func put_into_slot(new_item):
 	var inventory_node = find_parent("Inventory")
 	inventory_node.remove_child(item)
 	add_child(item)
+	refresh_style()
+	
+func initialize_item(item_name, item_quantity):
+	if item == null:
+		item = ItemClass.instance()
+		add_child(item)
+		item.set_item(item_name, item_quantity)
+	else:
+		item.set_item(item_name, item_quantity)
 	refresh_style()

@@ -33,6 +33,7 @@ func _ready():
 	else:
 		item_name = "Senzu Bean"
 		item_id = "senzubean"
+	#---END OF RANDOM SHIT---#
 	sprite_2d.texture = load("res://Assets/item_icons/" + item_id + ".png")
 	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
 	item_quantity = randi() % stack_size + 1
@@ -46,3 +47,8 @@ func _ready():
 func add_item_quantity(add_amount):
 	item_quantity += add_amount
 	label.text = str(item_quantity)
+	
+func set_item(nm,qt):
+	item_name = nm
+	item_quantity = qt
+	#sprite_2d.texture = load()

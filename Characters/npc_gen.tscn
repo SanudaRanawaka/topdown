@@ -41,3 +41,4 @@ theme_override_font_sizes/font_size = 12
 text = "Talk"
 
 [connection signal="become_highlighted" from="Hurtbox" to="." method="_on_hurtbox_become_highlighted"]
+[connection signal="start_interact" from="Hurtbox" to="." method="_on_hurtbox_start_interact"]

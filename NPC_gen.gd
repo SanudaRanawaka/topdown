@@ -27,17 +27,6 @@ func _ready():
 	
 func _process(delta):
 	#MIGHT BE BETTER TO HAVE A SIGNAL FROM PLAYER
-	if player_in_chat_zone:
-		if Input.is_action_just_pressed("interact"):
-			if !is_chatting:
-				chat()
-				if player != null:
-					player.activate_chat("warun_dialogue1")
-					print(player)
-			is_roaming = false
-			is_chatting = true
-			direction = Vector2.ZERO
-			current_state = IDLE
 	if is_roaming:
 		match current_state:
 			IDLE:
@@ -54,7 +43,8 @@ func choose(array):
 	
 func move(delta):
 	if !is_chatting:
-		position += direction * SPEED * delta
+		velocity =  direction * SPEED * delta
+	move_and_slide()
 		
 
 func chat():
@@ -73,3 +63,15 @@ func _on_hurtbox_become_highlighted(indicator):
 		print(self.name + " am Highlighted")
 		print(indicator)
 	label.set_visible(indicator)
+
+
+func _on_hurtbox_start_interact():
+	if !is_chatting:
+		chat()
+		if player != null:
+			player.activate_chat("warun_dialogue1")
+			print(player)
+		is_roaming = false
+		is_chatting = true
+		direction = Vector2.ZERO
+		current_state = IDLE

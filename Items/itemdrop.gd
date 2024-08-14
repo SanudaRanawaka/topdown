@@ -11,3 +11,6 @@ func _on_area_2d_become_highlighted(indicator):
 		sprite_2d.texture = load("res://Assets/item_icons/senzubeanH.png")
 	else:
 		sprite_2d.texture = load("res://Assets/item_icons/senzubean.png")
+
+#func pickup():
+	

@@ -8,3 +8,4 @@ signal become_highlighted(indicator)
 func call_highlight(indicator):
 	emit_signal("become_highlighted", indicator)
 	
+#func call_interact():
