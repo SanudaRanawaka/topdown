@@ -49,7 +49,6 @@ func move(delta):
 
 func chat():
 	is_chatting = true
-	print("runs chat()")
 
 func _on_timer_timeout():
 	timer.wait_time = choose([0.5,1,1.5])
@@ -59,9 +58,6 @@ func _on_timer_timeout():
 		timer.start()
 
 func _on_hurtbox_become_highlighted(indicator):
-	if indicator:
-		print(self.name + " am Highlighted")
-		print(indicator)
 	label.set_visible(indicator)
 
 
@@ -70,7 +66,6 @@ func _on_hurtbox_start_interact():
 		chat()
 		if player != null:
 			player.activate_chat("warun_dialogue1")
-			print(player)
 		is_roaming = false
 		is_chatting = true
 		direction = Vector2.ZERO

@@ -9,7 +9,6 @@ func take_damage(amount, knockback):
 	
 func call_highlight(indicator):
 	emit_signal("become_highlighted", indicator)
-	print("npc highlight")
 
 func call_interact():
 	return "warun_dialogue1"

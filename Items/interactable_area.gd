@@ -7,7 +7,6 @@ signal become_interacted()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func call_highlight(indicator):
 	emit_signal("become_highlighted", indicator)
-	print("highlight called")
-	
+
 func call_interact():
 	emit_signal("become_interacted")

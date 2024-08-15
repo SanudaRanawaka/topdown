@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dhpo2pj6a2lyb" path="res://ui.tscn" id="5_7l7k0"]
 [ext_resource type="PackedScene" uid="uid://cfegtfy6mrigk" path="res://Levels/konoha_revamp.tscn" id="11_iaths"]
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "ui")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "ui", "map")]
 script = ExtResource("1_357ew")
 player = NodePath("Player")
 ui = NodePath("UI")
+map = NodePath("konoha")
 
 [node name="Player" parent="." instance=ExtResource("1_xfni2")]
 z_index = 2
