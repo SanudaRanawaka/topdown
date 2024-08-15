@@ -23,7 +23,7 @@ shape = SubResource("RectangleShape2D_ap274")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Hurtbox" parent="." instance=ExtResource("3_te3q6")]
+[node name="Hurtbox" parent="." groups=["Interactable"] instance=ExtResource("3_te3q6")]
 position = Vector2(-93, -40)
 collision_layer = 6
 

@@ -79,7 +79,7 @@ func _process(_delta: float) -> void:
 		highlight_interact()
 	#print(nearest_item_test)
 	if Input.is_action_just_pressed("interact"):
-		if nearest_item_test != null:
+		if nearest_item_test != null and nearest_item_test.is_in_group("Interactable"):
 			var result = nearest_item_test.call_interact()
 			if result != null:
 				activate_chat(result)
@@ -197,11 +197,13 @@ func highlight_interact():
 			if nearest_item != nearest_item_test and nearest_item_test != null :
 				nearest_item_test.call_highlight(false)
 	nearest_item_test = nearest_item
-	nearest_item_test.call_highlight(true)
+	if nearest_item_test.is_in_group("Interactable"):
+		nearest_item_test.call_highlight(true)
 	
 
 func _on_interact_detect_no_interact():
-	nearest_item_test.call_highlight(false)
+	if nearest_item_test.is_in_group("Interactable"):
+		nearest_item_test.call_highlight(false)
 	nearest_item_test = null
 
 #func interact(interactable):
