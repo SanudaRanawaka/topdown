@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cehwwwnbs832k"
-path="res://.godot/imported/dragonball6.png-998ca2d009908d6d21e48430c33f5aa8.ctex"
+uid="uid://cdec1tgfb1sja"
+path="res://.godot/imported/Senzu Bean.png-c87b07109a98d3681cacc4a4668610a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/item_icons/dragonball6.png"
-dest_files=["res://.godot/imported/dragonball6.png-998ca2d009908d6d21e48430c33f5aa8.ctex"]
+source_file="res://Assets/item_icons/Senzu Bean.png"
+dest_files=["res://.godot/imported/Senzu Bean.png-c87b07109a98d3681cacc4a4668610a0.ctex"]
 
 [params]
 

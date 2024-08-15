@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvumn0yj0vdn0"
-path="res://.godot/imported/dragonball7.png-fda4a576ee1578b8a1da19c00ada34ac.ctex"
+path="res://.godot/imported/7 Star Dragon Ball.png-86e942da9982f589d45222458f3f021c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/item_icons/dragonball7.png"
-dest_files=["res://.godot/imported/dragonball7.png-fda4a576ee1578b8a1da19c00ada34ac.ctex"]
+source_file="res://Assets/item_icons/7 Star Dragon Ball.png"
+dest_files=["res://.godot/imported/7 Star Dragon Ball.png-86e942da9982f589d45222458f3f021c.ctex"]
 
 [params]
 

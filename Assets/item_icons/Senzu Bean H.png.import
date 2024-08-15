@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdec1tgfb1sja"
-path="res://.godot/imported/senzubean.png-1dac02f50ab392e23bf796dd1c79e4fc.ctex"
+uid="uid://clfwvljps8os5"
+path="res://.godot/imported/Senzu Bean H.png-a0c0cd78f704ee5cf8c3473f69665996.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/item_icons/senzubean.png"
-dest_files=["res://.godot/imported/senzubean.png-1dac02f50ab392e23bf796dd1c79e4fc.ctex"]
+source_file="res://Assets/item_icons/Senzu Bean H.png"
+dest_files=["res://.godot/imported/Senzu Bean H.png-a0c0cd78f704ee5cf8c3473f69665996.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clfwvljps8os5"
-path="res://.godot/imported/senzubeanH.png-204d00bcd8d57d8eee3ff639327956a1.ctex"
+uid="uid://qsak6uimk4j2"
+path="res://.godot/imported/2 Star Dragon Ball.png-47ec3018bde0f81b428ed8281e64e97d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/item_icons/senzubeanH.png"
-dest_files=["res://.godot/imported/senzubeanH.png-204d00bcd8d57d8eee3ff639327956a1.ctex"]
+source_file="res://Assets/item_icons/2 Star Dragon Ball.png"
+dest_files=["res://.godot/imported/2 Star Dragon Ball.png-47ec3018bde0f81b428ed8281e64e97d.ctex"]
 
 [params]
 

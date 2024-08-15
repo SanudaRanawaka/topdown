@@ -3,6 +3,7 @@ class_name UI
 @onready var health_bar = $Control/HealthBar
 @onready var hp_label = %Label
 @onready var dialog_box = $Control/DialogBox
+@onready var inventory = $Control/Inventory
 
 var hp = 100:
 	set(new_hp):
@@ -26,4 +27,8 @@ func _on_start_dialogue(dialogue_name) -> void:
 	print("chatting")
 	dialog_box.start()
 
+func _input(event):
+	if event.is_action_pressed("inventory") and inventory.holding_item == null:
+		inventory.set_visible(!(inventory.visible))
+		inventory.initialize_inventory()
 

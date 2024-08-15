@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d8tsxaqwsf18"
-path="res://.godot/imported/dragonball5.png-cce6536b17b090bb2e516b6bd0179fae.ctex"
+uid="uid://d0pjet7x7xcp2"
+path="res://.godot/imported/3 Star Dragon Ball.png-be028e85c2806a01d4034e2d49d6a6a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/item_icons/dragonball5.png"
-dest_files=["res://.godot/imported/dragonball5.png-cce6536b17b090bb2e516b6bd0179fae.ctex"]
+source_file="res://Assets/item_icons/3 Star Dragon Ball.png"
+dest_files=["res://.godot/imported/3 Star Dragon Ball.png-be028e85c2806a01d4034e2d49d6a6a4.ctex"]
 
 [params]
 

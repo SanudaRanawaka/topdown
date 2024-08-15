@@ -77,6 +77,7 @@ func _process(_delta: float) -> void:
 		use_move(0)
 	if interact_detect.interact_list != []:
 		highlight_interact()
+	#print(nearest_item_test)
 	if Input.is_action_just_pressed("interact"):
 		if nearest_item_test != null:
 			var result = nearest_item_test.call_interact()

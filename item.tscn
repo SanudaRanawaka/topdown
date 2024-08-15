@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7bhyot0y1be4"]
 
 [ext_resource type="Script" path="res://Item.gd" id="1_u5rht"]
-[ext_resource type="Texture2D" uid="uid://c35edvgfuxy8a" path="res://Assets/item_icons/dragonball1.png" id="2_wkij8"]
+[ext_resource type="Texture2D" uid="uid://c35edvgfuxy8a" path="res://Assets/item_icons/1 Star Dragon Ball.png" id="2_wkij8"]
 
 [node name="Item" type="Node2D"]
 script = ExtResource("1_u5rht")
