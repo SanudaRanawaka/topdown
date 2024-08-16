@@ -11,7 +11,6 @@ func _ready():
 
 func call_interact():
 	emit_signal("become_interacted",entrance_position)
-	pass
 
 func load_data():
 	pass

@@ -22890,6 +22890,7 @@ sources/1 = SubResource("TileSetAtlasSource_3jbh0")
 script = ExtResource("1_72rqo")
 
 [node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
 scale = Vector2(10, 10)
 tile_set = SubResource("TileSet_sg6o0")
 format = 2
@@ -22908,11 +22909,12 @@ scale = Vector2(3, 3)
 [node name="konoha_house_1" parent="." instance=ExtResource("3_v18tv")]
 position = Vector2(740, 1620)
 scale = Vector2(10, 10)
+map_name = null
 
 [node name="konoha_house_2" parent="." instance=ExtResource("3_v18tv")]
 position = Vector2(1740, 1610)
 scale = Vector2(10, 10)
-connected_scene = null
+map_name = null
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
