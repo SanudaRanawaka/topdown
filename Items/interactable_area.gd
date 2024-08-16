@@ -1,4 +1,4 @@
-extends Area2D
+class_name Interactable extends Area2D
 signal become_highlighted(indicator)
 signal become_interacted()
 # Called when the node enters the scene tree for the first time.

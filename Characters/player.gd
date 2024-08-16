@@ -168,6 +168,7 @@ func load_ability(move_name, slot_number = 0):
 	return -1
 
 func use_move(slot):
+	print(position)
 	if ability_names[slot] == "":
 		print("no move equipped")
 	else:

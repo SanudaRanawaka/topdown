@@ -1,23 +1,21 @@
-extends Node2D
-@onready var label = $Label
+extends Interactable
+
 var file_data = null
 var d = null
-# Called when the node enters the scene tree for the first time.
+#@onready var label = $Label
+var exit = "konoha"
+
 func _ready():
-	label.set_visible(false)
+	#label.set_visible(false)
 	file_data = load_data()
-	d = file_data["Destination"]
+
 	print(d)
 
-func _on_area_2d_become_highlighted(indicator):
-	label.set_visible(indicator)
-
-#call map and send destinations
-func _on_area_2d_become_interacted():
+func call_interact():
+	emit_signal("become_interacted")
 	get_parent().set_scene_changed(true)
 	get_parent().set_destination(d)
 
-#load destinations
 func load_data():
 	var file_path = "res://Data/MapData/"+get_parent().name+"Data/"+self.name+".json"
 	var file_data  = FileAccess.open(file_path, FileAccess.READ)
@@ -25,5 +23,8 @@ func load_data():
 	if file_data != null:
 		json_data.parse(file_data.get_as_text())
 		file_data.close()
+		d = file_data["Destination"]
+		d["Destination"][0] = exit
+		d["Destination"][2] = d["Destination"][3]
 		file_data = null
 		return json_data.get_data() 
