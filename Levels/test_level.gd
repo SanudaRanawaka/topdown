@@ -26,7 +26,7 @@ func on_change_scene(scene_array):
 	var scene_data_name = scene_array[1]
 	map.change_scene.disconnect(self.on_change_scene)
 	get_node(current_scene_name).queue_free()
-	current_scene_name = scene_name
+	current_scene_name = scene_data_name
 	var current_map = load("res://Levels/"+scene_name+".tscn")
 	var instance = current_map.instantiate()
 	##watch out for if dialog is open and stuff like that
