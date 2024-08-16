@@ -6,34 +6,20 @@ var scene_changed = false
 @export var destination: Array
 var current_data = null
 var number = 0
-
+@export var connected_scene: String
+var scene_folder = "res://Levels/"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	label.set_visible(false)
-	scene_changed = false
-	#load the konha item and npc spawn data
-	current_data = load_data()
-	#print("load data ready")
-	#print(current_data)
-	load_state(current_data)
+	SceneManager.current_map = self.name
 
 func _on_area_2d_become_highlighted(indicator):
 	label.set_visible(indicator)
 
-func _process(_delta):
-	if scene_changed:
-		if destination != null:
-			save_state(current_data)
-			#call manager to change scenes
-			print("map calls")
-			print(destination)
-			emit_signal("change_scene",destination)
-			print(emit_signal("change_scene",destination))
-	scene_changed = false
 
-func _on_area_2d_become_interacted():
-	scene_changed= true
+func _on_area_2d_become_interacted(spawn_position):
+	SceneManager.change_scene(connected_scene,spawn_position)
 
 func set_scene_changed(flag):
 	scene_changed = flag

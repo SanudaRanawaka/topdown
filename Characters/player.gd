@@ -43,6 +43,7 @@ func _ready():
 	ability_names = ["","","",""]
 	abilities = [0,0,0,0]
 	abilities[0] = load_ability("fireball",0)
+	SceneManager.player = self
 
 
 func _physics_process(delta):

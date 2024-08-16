@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhpo2pj6a2lyb"]
 
-[ext_resource type="Script" path="res://Levels/CanvasLayer.gd" id="1_y5ie6"]
+[ext_resource type="Script" path="res://scripts/CanvasLayer.gd" id="1_y5ie6"]
 [ext_resource type="PackedScene" uid="uid://8fy4at31o7y6" path="res://Characters/Utilities/health_bar.tscn" id="2_vnsu0"]
 [ext_resource type="PackedScene" uid="uid://co5lb5wa3h1vb" path="res://Characters/Dialogue/dialog_box.tscn" id="3_ovwd7"]
 [ext_resource type="PackedScene" uid="uid://b88qwt2wdb6pb" path="res://inventory.tscn" id="4_q0una"]

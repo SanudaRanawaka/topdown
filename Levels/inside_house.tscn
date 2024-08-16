@@ -21200,10 +21200,11 @@ sources/2 = SubResource("TileSetAtlasSource_swsb6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stjk5"]
 size = Vector2(54.7, 39.8)
 
-[node name="konoha_house_1" type="Node2D"]
+[node name="konoha_house_1" type="Node2D" groups=["Map"]]
 position = Vector2(155, -570)
 scale = Vector2(10, 10)
 script = ExtResource("1_3f4ab")
+connected_scene = "konoha"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ikb8f")
@@ -21212,6 +21213,7 @@ layer_0/tile_data = PackedInt32Array(65535, 65538, 23, 0, 65538, 23, 1, 65538, 2
 
 [node name="house exit" parent="." groups=["Interactable"] instance=ExtResource("5_8ckas")]
 script = ExtResource("6_ycm80")
+entrance_position = Vector2(750, 2550)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="house exit"]
 position = Vector2(-15.75, 59.9)

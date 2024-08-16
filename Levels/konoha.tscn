@@ -22886,7 +22886,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_ueud6")
 sources/1 = SubResource("TileSetAtlasSource_3jbh0")
 
-[node name="konoha" type="Node2D"]
+[node name="konoha" type="Node2D" groups=["Map"]]
 script = ExtResource("1_72rqo")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -22912,6 +22912,7 @@ scale = Vector2(10, 10)
 [node name="konoha_house_2" parent="." instance=ExtResource("3_v18tv")]
 position = Vector2(1740, 1610)
 scale = Vector2(10, 10)
+connected_scene = null
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
