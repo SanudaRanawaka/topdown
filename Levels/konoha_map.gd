@@ -26,7 +26,10 @@ func _process(_delta):
 		if destination != null:
 			save_state(current_data)
 			#call manager to change scenes
+			print("map calls")
+			print(destination)
 			emit_signal("change_scene",destination)
+			print(emit_signal("change_scene",destination))
 	scene_changed = false
 
 func _on_area_2d_become_interacted():
@@ -39,14 +42,11 @@ func set_destination(flag):
 	destination = flag
 	
 func load_data():
-	print("self name is " + self.name)
 	var file_path = "res://Data/MapData/konohaData/"+self.name+"_save.json"
-	print(file_path)
 	var file_data  = FileAccess.open(file_path, FileAccess.READ)
 	var json_data  = JSON.new()
 	if file_data == null:
 		print("read Failed")
-		print(json_data)
 		return{}
 	json_data.parse(file_data.get_as_text())
 	file_data.close()
@@ -79,7 +79,6 @@ func remove_from_state(object_name):
 
 func save_state(save_data):
 	var file_path = "res://Data/MapData/konohaData/"+self.name+"_save.json"
-	print(file_path)
 	var file_data  = FileAccess.open(file_path, FileAccess.WRITE)
 	if file_data == null:
 		print("read Failed")

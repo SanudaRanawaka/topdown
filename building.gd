@@ -7,7 +7,6 @@ func _ready():
 	label.set_visible(false)
 	file_data = load_data()
 	d = file_data["Destination"]
-	print(d)
 
 func _on_area_2d_become_highlighted(indicator):
 	label.set_visible(indicator)

@@ -11,7 +11,6 @@ func _ready():
 	d = file_data["Destination"]
 	d[0] = "konoha"
 	d[2] = d[3]
-	print(d)
 
 func call_interact():
 	emit_signal("become_interacted")
@@ -22,9 +21,6 @@ func call_interact():
 func load_data():
 	var file_path = "res://Data/MapData/"+exit+"Data/"+get_parent().name+".json"
 	file_data  = FileAccess.open(file_path, FileAccess.READ)
-	
-	print("file path is")
-	print(file_path)
 	
 	var json_data  = JSON.new()
 	if file_data == null:

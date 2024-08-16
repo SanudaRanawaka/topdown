@@ -22,6 +22,7 @@ func _ready():
 		map.change_scene.connect(self.on_change_scene)
 
 func on_change_scene(scene_array):
+	print("on_change_scene")
 	var scene_name = scene_array[0]
 	var scene_data_name = scene_array[1]
 	map.change_scene.disconnect(self.on_change_scene)
@@ -36,9 +37,11 @@ func on_change_scene(scene_array):
 	player.position.y = scene_array[2][1]
 	current_scene_path = "res://Levels/"+scene_name+".tscn"
 	var node = get_node(scene_data_name)
-	print("node and instance")
-	print(node)
+	#print("node and instance")
+	#print(node)
 	map = node
-	print(instance)
+	print("map change")
+	print(map)
+	#print(instance)
 	if !map.change_scene.is_connected(self.on_change_scene):
 		map.change_scene.connect(self.on_change_scene)
