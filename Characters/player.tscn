@@ -1099,7 +1099,6 @@ size = Vector2(59.2, 124)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khwh8"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_4vq2i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

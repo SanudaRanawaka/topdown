@@ -6,6 +6,9 @@ var scene_dir_path = "res://Levels/"
 
 var current_data
 
+func _ready():
+	current_map = "konoha"
+
 # Called when the node enters the scene tree for the first time.
 func change_scene(scene,spawn_position) -> void:
 	#print(scene)
@@ -17,7 +20,6 @@ func change_scene(scene,spawn_position) -> void:
 		sceneNode.name = current_map
 		(player.get_tree().root).add_child(sceneNode)
 		player.position = spawn_position
-		print(sceneNode.name)
 		print(current_map)
 		
 func load_data():

@@ -5,12 +5,6 @@ var d = null
 #@onready var label = $Label
 var exit = "konoha"
 
-func _ready():
-	#label.set_visible(false)
-	pass
-
 func call_interact():
+	SceneManager.current_map = exit
 	emit_signal("become_interacted",entrance_position)
-
-func load_data():
-	pass

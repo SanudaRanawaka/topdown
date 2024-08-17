@@ -13,7 +13,6 @@ size = Vector2(23, 46)
 [node name="konoha_house" type="Node2D"]
 script = ExtResource("1_vhgod")
 connected_scene = "inside_house"
-map_name = "konoha_house"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_b8yo1")

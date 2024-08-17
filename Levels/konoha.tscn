@@ -22887,11 +22887,11 @@ sources/0 = SubResource("TileSetAtlasSource_ueud6")
 sources/1 = SubResource("TileSetAtlasSource_3jbh0")
 
 [node name="konoha" type="Node2D" groups=["Map"]]
+scale = Vector2(10, 10)
 script = ExtResource("1_72rqo")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
-scale = Vector2(10, 10)
 tile_set = SubResource("TileSet_sg6o0")
 format = 2
 layer_0/name = "Ground"
@@ -22903,19 +22903,15 @@ layer_2/tile_data = PackedInt32Array(-21, 65537, 15, -20, 65537, 15, -19, 65537,
 metadata/_edit_lock_ = true
 
 [node name="NPC_Gen" parent="." instance=ExtResource("5_2murl")]
-position = Vector2(0, 2556)
-scale = Vector2(3, 3)
+position = Vector2(1, 260)
+scale = Vector2(0.25, 0.25)
 
 [node name="konoha_house_1" parent="." instance=ExtResource("3_v18tv")]
-position = Vector2(740, 1620)
-scale = Vector2(10, 10)
-map_name = null
-
-[node name="konoha_house_2" parent="." instance=ExtResource("3_v18tv")]
-position = Vector2(1740, 1610)
-scale = Vector2(10, 10)
-map_name = null
+position = Vector2(81, 199)
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="konoha_house_2" parent="." instance=ExtResource("3_v18tv")]
+position = Vector2(181, 200)

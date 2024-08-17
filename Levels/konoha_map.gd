@@ -11,7 +11,7 @@ var scene_folder = "res://Levels/"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	label.set_visible(false)
-	SceneManager.current_map = self.name
+	
 
 func _on_area_2d_become_highlighted(indicator):
 	label.set_visible(indicator)
