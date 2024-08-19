@@ -24,7 +24,6 @@ func _on_update_health(amount) -> void:
 		hp += amount
 
 func _on_start_dialogue(dialogue_name) -> void:
-	print("chatting")
 	dialog_box.start()
 
 func _input(event):

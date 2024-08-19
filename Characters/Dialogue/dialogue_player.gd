@@ -13,7 +13,6 @@ func _ready():
 	self.set_visible(false)
 
 func start():
-	print("started")
 	if d_active:
 		return
 	d_active = true
@@ -34,8 +33,6 @@ func _input(event):
 		next_script()
 
 func next_script():
-	print(current_dialogue_id)
-	print(len(dialogue))
 	current_dialogue_id +=1
 	if current_dialogue_id >= len(dialogue):
 		d_active = false

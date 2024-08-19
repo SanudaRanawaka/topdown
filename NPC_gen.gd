@@ -45,7 +45,6 @@ func move(delta):
 
 func chat():
 	is_chatting = true
-	print("Ui manager calls chat")
 	UiManager.activate_chat("warun_dialogue1")
 	if !UiManager.finish_dialogue.is_connected(self.finished_chat):
 		UiManager.finish_dialogue.connect(self.finished_chat)
@@ -58,7 +57,6 @@ func _on_timer_timeout():
 	current_state = choose([IDLE, NEW_DIR, MOVE])
 	if !is_chatting:
 		timer.start()
-	print(current_state)
 
 func _on_hurtbox_become_highlighted(indicator):
 	label.set_visible(indicator)
@@ -66,11 +64,9 @@ func _on_hurtbox_become_highlighted(indicator):
 
 func _on_hurtbox_start_interact():
 	if !is_chatting:
-		print("npc calls chat")
 		chat()
 
 func finished_chat():
-	print("finito")
 	cooldown.start()
 	is_roaming = true
 	if UiManager.finish_dialogue.is_connected(self.finished_chat):

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Items/itemdrop.gd" id="1_0s55l"]
 [ext_resource type="Texture2D" uid="uid://cdec1tgfb1sja" path="res://Assets/item_icons/Senzu Bean.png" id="1_l7d0c"]
-[ext_resource type="Script" path="res://Items/interactable_area.gd" id="3_0gn2b"]
+[ext_resource type="Script" path="res://Items/interact_area.gd" id="3_c2rmj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6my8q"]
 size = Vector2(13, 13.8333)
@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_6my8q")
 [node name="Area2D" type="Area2D" parent="." groups=["Interactable"]]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("3_0gn2b")
+script = ExtResource("3_c2rmj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(3, 3)
