@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfegtfy6mrigk"]
+[gd_scene load_steps=10 format=3 uid="uid://cfegtfy6mrigk"]
 
 [ext_resource type="Script" path="res://Levels/konoha_map.gd" id="1_72rqo"]
 [ext_resource type="Texture2D" uid="uid://dc7f08nqnpfkm" path="res://Assets/Environment/Tilesets/Game Boy Advance - Pokemon Ruby Sapphire - Lavaridge Town.png" id="1_ct6sp"]
 [ext_resource type="Texture2D" uid="uid://dklsjuuiy3b8o" path="res://Assets/Environment/Tilesets/61816.png" id="2_u1bys"]
 [ext_resource type="PackedScene" uid="uid://6570ornj3ybl" path="res://building.tscn" id="3_v18tv"]
 [ext_resource type="PackedScene" uid="uid://cb7hd0rjap887" path="res://Characters/npc_gen.tscn" id="5_2murl"]
+[ext_resource type="PackedScene" uid="uid://ddhfoig5hd3sc" path="res://Items/itemdrop.tscn" id="6_eeei5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ueud6"]
 texture = ExtResource("1_ct6sp")
@@ -22915,3 +22916,7 @@ offset_bottom = 23.0
 
 [node name="konoha_house_2" parent="." instance=ExtResource("3_v18tv")]
 position = Vector2(181, 200)
+
+[node name="itemdrop" parent="." instance=ExtResource("6_eeei5")]
+position = Vector2(-35.4, 197.8)
+scale = Vector2(0.1, 0.1)

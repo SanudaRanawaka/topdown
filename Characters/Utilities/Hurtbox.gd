@@ -11,4 +11,4 @@ func call_highlight(indicator):
 	emit_signal("become_highlighted", indicator)
 
 func call_interact():
-	return "warun_dialogue1"
+	emit_signal("start_interact")

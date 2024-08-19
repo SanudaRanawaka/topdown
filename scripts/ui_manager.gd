@@ -8,6 +8,8 @@ func _ready():
 	#	call ui stuff
 	if !player.update_health.is_connected(ui._on_update_health):
 		player.update_health.connect(ui._on_update_health)
-	if !player.start_dialogue.is_connected(ui._on_start_dialogue):
-		player.start_dialogue.connect(ui._on_start_dialogue)
+	#if !player.start_dialogue.is_connected(ui._on_start_dialogue):
+		#player.start_dialogue.connect(ui._on_start_dialogue)
 	# default scene
+	if !UiManager.start_dialogue.is_connected(ui._on_start_dialogue):
+		UiManager.start_dialogue.connect(ui._on_start_dialogue)

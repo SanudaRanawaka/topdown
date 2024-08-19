@@ -13,7 +13,7 @@ func _on_area_2d_become_highlighted(indicator):
 
 func pickup():
 	PlayerInventory.add_item(item_name, 1)
-	get_parent().remove_from_state(self.name)
+	#get_parent().remove_from_state(self.name)
 	queue_free()
 
 

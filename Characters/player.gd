@@ -36,7 +36,6 @@ var nearest_item_test = null
 @onready var abilities = [0,0,0,0]
 var armor = 0
 
-
 func _ready():
 	animation_tree.active= true
 	emit_signal("update_health", cur_health)
@@ -82,8 +81,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if nearest_item_test != null and nearest_item_test.is_in_group("Interactable"):
 			var result = nearest_item_test.call_interact()
-			if result != null:
-				activate_chat(result)
 
 #copy pasting probably a better way
 func attack_combo():
@@ -180,10 +177,6 @@ func add_card(number):
 	card_collection.append(number)
 	card_collection.sort()
 	print(card_collection)
-	
-func activate_chat(dialogue_name):
-	emit_signal("start_dialogue",dialogue_name)
-	print("player activate chat")
 	
 func highlight_interact():
 	var nearest_item = null

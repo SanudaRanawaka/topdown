@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var NPRname = $NinePatchRect/Name
 @onready var NPRtext = $NinePatchRect/Text
 
@@ -19,9 +18,10 @@ func start():
 		return
 	d_active = true
 	self.set_visible(true)
-	
+	var current_dialogue_id = -1
 	dialogue = load_dialogue()
 	next_script()
+
 func load_dialogue():
 	var file = FileAccess.open("res://Characters/Dialogue/warun_dialogue1.json", FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
@@ -34,10 +34,14 @@ func _input(event):
 		next_script()
 
 func next_script():
+	print(current_dialogue_id)
+	print(len(dialogue))
 	current_dialogue_id +=1
 	if current_dialogue_id >= len(dialogue):
 		d_active = false
 		self.set_visible(false)
+		UiManager.finished_chat()
+		current_dialogue_id = -1
 		return
 	NPRname.text = dialogue[current_dialogue_id]['name']
 	NPRtext.text = dialogue[current_dialogue_id]['text']

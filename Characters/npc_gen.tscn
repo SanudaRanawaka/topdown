@@ -22,6 +22,7 @@ texture = ExtResource("2_gyl7q")
 shape = SubResource("RectangleShape2D_ap274")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Hurtbox" parent="." groups=["Interactable"] instance=ExtResource("3_te3q6")]
 position = Vector2(-93, -40)
@@ -40,5 +41,10 @@ offset_bottom = -49.0
 theme_override_font_sizes/font_size = 12
 text = "Talk"
 
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="become_highlighted" from="Hurtbox" to="." method="_on_hurtbox_become_highlighted"]
 [connection signal="start_interact" from="Hurtbox" to="." method="_on_hurtbox_start_interact"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
