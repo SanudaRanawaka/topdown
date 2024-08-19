@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://daodcdi5ab1cj"]
 
-[ext_resource type="Script" path="res://Levels/konoha_map.gd" id="1_3f4ab"]
+[ext_resource type="Script" path="res://Levels/Maps/konoha/konoha_map.gd" id="1_3f4ab"]
 [ext_resource type="Texture2D" uid="uid://dklsjuuiy3b8o" path="res://Assets/Environment/Tilesets/61816.png" id="2_34fkx"]
 [ext_resource type="Texture2D" uid="uid://b2v320bfx08hr" path="res://Assets/Environment/Tilesets/interior_tileset_by_spinda94_by_spinda94_d9lzd1v-375w-2x.jpg" id="3_ex5dp"]
 [ext_resource type="Texture2D" uid="uid://bvdpbq82qd3rc" path="res://Assets/Environment/Tilesets/the_home_of_excello_village_tileset_by_princess_phoenix_dcxrgtv-fullview.png" id="4_85mxl"]

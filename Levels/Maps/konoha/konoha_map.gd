@@ -6,7 +6,7 @@ var current_data = null
 
 @export var connected_scene: String
 @export var from_scene: String
-var scene_folder = "res://Levels/"
+var scene_folder = "res://Levels/Maps/konoha/"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

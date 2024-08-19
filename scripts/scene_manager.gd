@@ -2,7 +2,7 @@ extends Node
 
 var player: Player
 var current_map : String
-var scene_dir_path = "res://Levels/"
+var scene_dir_path = "res://Levels/Maps/konoha/"
 
 var current_data
 

@@ -1,7 +1,7 @@
 extends Node2D
 @onready var label = $Label
 @export var connected_scene: String
-var scene_folder = "res://Levels/"
+var scene_folder = "res://Levels/Maps/konoha/"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	label.set_visible(false)

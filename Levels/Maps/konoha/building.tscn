@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://6570ornj3ybl"]
 
-[ext_resource type="Script" path="res://building.gd" id="1_vhgod"]
+[ext_resource type="Script" path="res://Levels/Maps/konoha/building.gd" id="1_vhgod"]
 [ext_resource type="Texture2D" uid="uid://clxf0v7mj63oo" path="res://Assets/Environment/Konoha House.png" id="2_b8yo1"]
 [ext_resource type="PackedScene" uid="uid://cr4ejr0jtcwh4" path="res://interact_area.tscn" id="3_v1hp1"]
 
