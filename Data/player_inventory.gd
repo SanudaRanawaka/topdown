@@ -1,8 +1,8 @@
 #How to Make an Inventory System in Godot by Arkeve
 
 extends Node
-const SlotClass = preload("res://Slot.gd")
-const ItemClass = preload("res://Item.gd")
+const SlotClass = preload("res://scripts/Slot.gd")
+const ItemClass = preload("res://scripts/Item.gd")
 
 const NUM_INVENTORY_SLOTS = 20
 

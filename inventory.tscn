@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b88qwt2wdb6pb"]
 
 [ext_resource type="Texture2D" uid="uid://cm8r17clk101o" path="res://Assets/inventoryback.png" id="1_0yfx0"]
-[ext_resource type="Script" path="res://inventory.gd" id="1_6vijf"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_6vijf"]
 [ext_resource type="Texture2D" uid="uid://xnh6s4mvvtbr" path="res://Assets/inventoryslot.png" id="2_2kypt"]
-[ext_resource type="Script" path="res://Slot.gd" id="3_0ur77"]
+[ext_resource type="Script" path="res://scripts/Slot.gd" id="3_0ur77"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u8h8l"]
 texture = ExtResource("2_2kypt")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://biqf5rtvofb01"]
 
-[ext_resource type="Script" path="res://Card.gd" id="1_tll2o"]
+[ext_resource type="Script" path="res://Items/Card.gd" id="1_tll2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blsvr"]
 

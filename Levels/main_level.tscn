@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq18em1fkqkav"]
+
+[ext_resource type="Script" path="res://scripts/main_level.gd" id="1_ieb6v"]
+[ext_resource type="PackedScene" uid="uid://6n1yf4i04di1" path="res://Characters/player.tscn" id="2_ieej6"]
+[ext_resource type="PackedScene" uid="uid://dhpo2pj6a2lyb" path="res://ui.tscn" id="3_olvqu"]
+[ext_resource type="PackedScene" uid="uid://cfegtfy6mrigk" path="res://Levels/Maps/konoha/konoha.tscn" id="4_ndd2v"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player", "ui")]
+script = ExtResource("1_ieb6v")
+player = NodePath("Player")
+ui = NodePath("UI")
+
+[node name="Player" parent="." instance=ExtResource("2_ieej6")]
+z_index = 2
+position = Vector2(-306, 2520)
+scale = Vector2(0.6, 0.6)
+
+[node name="UI" parent="." instance=ExtResource("3_olvqu")]
+
+[node name="konoha" parent="." instance=ExtResource("4_ndd2v")]

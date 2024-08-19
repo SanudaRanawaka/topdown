@@ -6,7 +6,7 @@ var empty_tex = preload("res://Assets/inventoryslot.png")
 var default_style: StyleBoxTexture = null
 var empty_style: StyleBoxTexture = null
 
-var ItemClass = preload("res://item.tscn")
+var ItemClass = preload("res://scenes/item.tscn")
 var item = null
 var slot_index
 
