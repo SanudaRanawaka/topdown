@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dklsjuuiy3b8o" path="res://Assets/Environment/Tilesets/61816.png" id="2_34fkx"]
 [ext_resource type="Texture2D" uid="uid://b2v320bfx08hr" path="res://Assets/Environment/Tilesets/interior_tileset_by_spinda94_by_spinda94_d9lzd1v-375w-2x.jpg" id="3_ex5dp"]
 [ext_resource type="Texture2D" uid="uid://bvdpbq82qd3rc" path="res://Assets/Environment/Tilesets/the_home_of_excello_village_tileset_by_princess_phoenix_dcxrgtv-fullview.png" id="4_85mxl"]
-[ext_resource type="PackedScene" uid="uid://cr4ejr0jtcwh4" path="res://interact_area.tscn" id="5_8ckas"]
-[ext_resource type="Script" path="res://interact_area_house.gd" id="6_ycm80"]
+[ext_resource type="PackedScene" uid="uid://cr4ejr0jtcwh4" path="res://scenes/interact_area.tscn" id="5_8ckas"]
+[ext_resource type="Script" path="res://scripts/interact_area_house.gd" id="6_ycm80"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n62gf"]
 texture = ExtResource("2_34fkx")

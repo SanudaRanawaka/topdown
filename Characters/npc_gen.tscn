@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cb7hd0rjap887"]
 
-[ext_resource type="Script" path="res://NPC_gen.gd" id="1_4g0bm"]
+[ext_resource type="Script" path="res://Characters/NPC_gen.gd" id="1_4g0bm"]
 [ext_resource type="Texture2D" uid="uid://b2kft2qbmsfgh" path="res://Assets/WaRunStand1.png" id="2_gyl7q"]
 [ext_resource type="PackedScene" uid="uid://bqeh5nirfa15c" path="res://Characters/Utilities/hurtbox.tscn" id="3_te3q6"]
 

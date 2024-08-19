@@ -8,6 +8,7 @@ var current_data
 
 func _ready():
 	current_map = "konoha"
+	load_data("res://Data/MapData/konohaData/konoha_save.json")
 
 # Called when the node enters the scene tree for the first time.
 func change_scene(scene,spawn_position) -> void:
@@ -22,16 +23,19 @@ func change_scene(scene,spawn_position) -> void:
 		player.position = spawn_position
 		print(current_map)
 		
-func load_data():
-	var file_path = "res://Data/MapData/konohaData/"+self.name+"_save.json"
-	var file_data  = FileAccess.open(file_path, FileAccess.READ)
-	var json_data  = JSON.new()
-	if file_data == null:
+func load_data(file_path):
+	if file_path == null:
 		print("read Failed")
-		return{}
+		return
+	print(file_path)
+	var file_data  = FileAccess.open(file_path, FileAccess.READ)
+	if file_data == null:
+		return
+	var json_data  = JSON.new()
 	json_data.parse(file_data.get_as_text())
 	file_data.close()
 	file_data = null
+	print(json_data.get_data())
 	return json_data.get_data() 
 	
 func load_state(data):
