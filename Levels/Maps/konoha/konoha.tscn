@@ -22909,6 +22909,7 @@ scale = Vector2(0.25, 0.25)
 
 [node name="konoha_house_1" parent="." instance=ExtResource("3_v18tv")]
 position = Vector2(81, 199)
+spawn_position = Vector2(77, 275)
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
@@ -22916,6 +22917,7 @@ offset_bottom = 23.0
 
 [node name="konoha_house_2" parent="." instance=ExtResource("3_v18tv")]
 position = Vector2(181, 200)
+spawn_position = null
 
 [node name="itemdrop" parent="." instance=ExtResource("6_eeei5")]
 position = Vector2(-35.4, 197.8)

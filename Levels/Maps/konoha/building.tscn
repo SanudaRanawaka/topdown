@@ -13,6 +13,7 @@ size = Vector2(23, 46)
 [node name="konoha_house" type="Node2D"]
 script = ExtResource("1_vhgod")
 connected_scene = "inside_house"
+spawn_position = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_b8yo1")
@@ -25,9 +26,9 @@ collision_mask = 0
 position = Vector2(-2.5, 20)
 shape = SubResource("RectangleShape2D_c7371")
 
-[node name="Area2D" parent="." groups=["Interactable"] instance=ExtResource("3_21wjj")]
+[node name="Door" parent="." groups=["Interactable"] instance=ExtResource("3_21wjj")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(-3.5, 52)
 shape = SubResource("RectangleShape2D_12mbf")
 
@@ -39,5 +40,5 @@ offset_bottom = 38.0
 theme_override_font_sizes/font_size = 10
 text = "Enter"
 
-[connection signal="become_highlighted" from="Area2D" to="." method="_on_area_2d_become_highlighted"]
-[connection signal="become_interacted" from="Area2D" to="." method="_on_area_2d_become_interacted"]
+[connection signal="become_highlighted" from="Door" to="." method="_on_area_2d_become_highlighted"]
+[connection signal="become_interacted" from="Door" to="." method="_on_area_2d_become_interacted"]

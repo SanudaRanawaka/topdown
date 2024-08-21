@@ -12,7 +12,8 @@ func _ready():
 
 # Called when the node enters the scene tree for the first time.
 func change_scene(scene,spawn_position) -> void:
-	#print(scene)
+	print("The Scene Is ")
+	print(scene)
 	player.get_tree().get_nodes_in_group("Map")[0].queue_free()
 	var scene_node = load(scene_dir_path+scene+".tscn")
 	#print(scene_dir_path+scene+".tscn")

@@ -21200,7 +21200,7 @@ sources/2 = SubResource("TileSetAtlasSource_swsb6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stjk5"]
 size = Vector2(54.7, 39.8)
 
-[node name="konoha_house_1" type="Node2D" groups=["Map"]]
+[node name="konoha_inside" type="Node2D" groups=["Map"]]
 position = Vector2(155, -570)
 scale = Vector2(10, 10)
 script = ExtResource("1_3f4ab")

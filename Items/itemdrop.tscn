@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Items/itemdrop.gd" id="1_0s55l"]
 [ext_resource type="Texture2D" uid="uid://cdec1tgfb1sja" path="res://Assets/item_icons/Senzu Bean.png" id="1_l7d0c"]
-[ext_resource type="Script" path="res://Items/interact_area.gd" id="3_c2rmj"]
+[ext_resource type="PackedScene" uid="uid://suhflpmc2n5h" path="res://scenes/interactable_area.tscn" id="3_682uc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6my8q"]
-size = Vector2(13, 13.8333)
+size = Vector2(22.5, 22.25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc7fi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0kme"]
 
 [node name="itemdrop" type="CharacterBody2D"]
 collision_layer = 4
@@ -17,18 +17,15 @@ script = ExtResource("1_0s55l")
 texture = ExtResource("1_l7d0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.90735e-06, 1)
-scale = Vector2(1.5, 1.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_6my8q")
 
-[node name="Area2D" type="Area2D" parent="." groups=["Interactable"]]
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("3_c2rmj")
+[node name="Area2D" parent="." instance=ExtResource("3_682uc")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(3, 3)
-shape = SubResource("RectangleShape2D_vc7fi")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+scale = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_y0kme")
 
 [connection signal="become_highlighted" from="Area2D" to="." method="_on_area_2d_become_highlighted"]
 [connection signal="become_interacted" from="Area2D" to="." method="_on_area_2d_become_interacted"]

@@ -1,0 +1,6 @@
+{
+	"SceneName":"inside_house",
+	"Spawnables":{"Senzu Bean 1":["res://Items/itemdrop.tscn",[0,0]]},
+	"Doors":[{"konoha":[75,270]}],
+	"MapFolder":"konoha"
+}

@@ -75,3 +75,4 @@ func finished_chat():
 
 func _on_cooldown_timeout():
 	is_chatting =false
+	timer.start()

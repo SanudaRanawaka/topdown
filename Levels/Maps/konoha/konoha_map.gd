@@ -5,7 +5,7 @@ class_name Map
 var current_data = null
 
 @export var connected_scene: String
-@export var from_scene: String
+@export var spawn_position: Vector2
 var scene_folder = "res://Levels/Maps/konoha/"
 var data_path = "res://Data/MapData/konohaData/" + self.name + "_save.json"
 
