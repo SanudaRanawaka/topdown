@@ -82,7 +82,7 @@ func _process(_delta: float) -> void:
 		if nearest_item_test != null and nearest_item_test.is_in_group("Interactable"):
 			var result = nearest_item_test.call_interact()
 
-#copy pasting probably a better way
+#copy pasting, probably a better way
 func attack_combo():
 	if Input.is_action_just_pressed("basic_attack") and atk_number == 3:
 		is_attacking = true

@@ -22904,10 +22904,10 @@ layer_2/tile_data = PackedInt32Array(-21, 65537, 15, -20, 65537, 15, -19, 65537,
 metadata/_edit_lock_ = true
 
 [node name="NPC_Gen" parent="." instance=ExtResource("5_2murl")]
-position = Vector2(1, 260)
+position = Vector2(-2.2, 272.1)
 scale = Vector2(0.25, 0.25)
 
-[node name="konoha_house_1" parent="." instance=ExtResource("3_v18tv")]
+[node name="konoha_house_1" parent="." groups=["Building"] instance=ExtResource("3_v18tv")]
 position = Vector2(81, 199)
 spawn_position = Vector2(77, 275)
 
@@ -22915,9 +22915,8 @@ spawn_position = Vector2(77, 275)
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="konoha_house_2" parent="." instance=ExtResource("3_v18tv")]
-position = Vector2(181, 200)
-spawn_position = null
+[node name="konoha_house_2" parent="." groups=["Building"] instance=ExtResource("3_v18tv")]
+position = Vector2(181, 199)
 
 [node name="itemdrop" parent="." instance=ExtResource("6_eeei5")]
 position = Vector2(-35.4, 197.8)

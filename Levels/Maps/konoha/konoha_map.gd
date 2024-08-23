@@ -9,9 +9,16 @@ var current_data = null
 var scene_folder = "res://Levels/Maps/konoha/"
 var data_path = "res://Data/MapData/konohaData/" + self.name + "_save.json"
 
+var file_data: Dictionary
+var next_scene: String
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	label.set_visible(false)
+	print("\nMAP READY FUNCTION\n")
+	print("map name is "+name)
+	if name != null:
+		file_data = SceneManager.load_data(name)
+	
 	
 
 func _on_area_2d_become_highlighted(indicator):
@@ -20,10 +27,8 @@ func _on_area_2d_become_highlighted(indicator):
 func _on_area_2d_become_interacted(spawn_position):
 	data_path = "res://Data/MapData/konohaData/" + self.name + "_save.json"
 	print("scene manager load "+self.name)
-	SceneManager.load_data(connected_scene)
-	SceneManager.call_deferred("change_scene",connected_scene,spawn_position)
-
+	SceneManager.call_deferred("change_scene",file_data["Exits"][0][0])
 	
-
-	
-	
+func change_name(aname):
+	self.name = aname
+	print(aname +" "+self.name)
