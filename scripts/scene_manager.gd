@@ -13,7 +13,7 @@ var current_data_file : Dictionary
 func _ready():
 	current_data_file = load_data("konoha")
 	print("scene manager autoload ready")
-	var current_spawn_point = [0,0]
+	current_spawn_point = [0,0]
 	
 func change_scene(file_name)-> void:
 	var has_exits = false
@@ -64,6 +64,14 @@ func load_scene(build_name, file_data):
 		print(build_name)
 		print("build_name "+sceneNode.name)
 		(player.get_tree().root).add_child(sceneNode)
+		var itemslist = file_data["Spawnables"].keys()
+		for i in itemslist:
+			if file_data["Spawnables"][i][2]:
+				var item_node = load(file_data["Spawnables"][i][0])
+				var itemNode = item_node.instantiate()
+				itemNode.name = i
+				itemNode.position = Vector2(file_data["Spawnables"][i][1][0],file_data["Spawnables"][i][1][1])
+				sceneNode.add_child(itemNode)
 
 
 

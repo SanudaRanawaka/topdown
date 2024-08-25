@@ -80,7 +80,11 @@ func _process(_delta: float) -> void:
 	#print(nearest_item_test)
 	if Input.is_action_just_pressed("interact"):
 		if nearest_item_test != null and nearest_item_test.is_in_group("Interactable"):
-			var result = nearest_item_test.call_interact()
+			nearest_item_test.call_interact()
+	if Input.is_action_pressed("run"):
+		move_speed = 1000
+	else:
+		move_speed = 500
 
 #copy pasting, probably a better way
 func attack_combo():

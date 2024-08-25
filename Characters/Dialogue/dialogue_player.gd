@@ -17,7 +17,7 @@ func start():
 		return
 	d_active = true
 	self.set_visible(true)
-	var current_dialogue_id = -1
+	current_dialogue_id = -1
 	dialogue = load_dialogue()
 	next_script()
 

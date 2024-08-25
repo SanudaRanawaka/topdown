@@ -10,6 +10,7 @@ size = Vector2(22.5, 22.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0kme"]
 
 [node name="itemdrop" type="CharacterBody2D"]
+scale = Vector2(0.1, 0.1)
 collision_layer = 4
 script = ExtResource("1_0s55l")
 

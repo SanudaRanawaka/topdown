@@ -7,4 +7,4 @@ var exit = "konoha"
 
 func call_interact():
 	SceneManager.current_map = exit
-	emit_signal("become_interacted",entrance_position)
+	emit_signal("become_interacted")

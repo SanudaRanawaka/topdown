@@ -37,7 +37,7 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 				left_click_not_holding(slot)
 				
 				
-func _input(event):
+func _input(_event):
 	#if event.is_action_pressed("inventory") and holding_item == null:
 		#self.set_visible(!(self.visible))
 	if holding_item:

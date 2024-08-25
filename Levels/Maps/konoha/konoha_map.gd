@@ -24,7 +24,7 @@ func _ready():
 func _on_area_2d_become_highlighted(indicator):
 	label.set_visible(indicator)
 
-func _on_area_2d_become_interacted(spawn_position):
+func _on_area_2d_become_interacted():
 	data_path = "res://Data/MapData/konohaData/" + self.name + "_save.json"
 	print("scene manager load "+self.name)
 	SceneManager.call_deferred("change_scene",file_data["Exits"][0][0])
