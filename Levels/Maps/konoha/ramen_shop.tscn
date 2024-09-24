@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://clxhyuqacxpv4"]
+
+[ext_resource type="Script" path="res://Levels/Maps/konoha/building.gd" id="1_ruqrq"]
+[ext_resource type="Texture2D" uid="uid://bb60qvpcmckja" path="res://Assets/Environment/ramen_shop.png" id="2_trfd7"]
+[ext_resource type="PackedScene" uid="uid://cr4ejr0jtcwh4" path="res://scenes/interact_area.tscn" id="3_sbgs1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdr8q"]
+size = Vector2(53.9995, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12mbf"]
+size = Vector2(120, 41)
+
+[node name="ramen_shop" type="Node2D"]
+script = ExtResource("1_ruqrq")
+connected_scene = "inside_house"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -48)
+texture = ExtResource("2_trfd7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7.5, 22)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_kdr8q")
+
+[node name="Door" parent="." groups=["Interactable"] instance=ExtResource("3_sbgs1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(-6, 40)
+shape = SubResource("RectangleShape2D_12mbf")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -16.0
+offset_top = 21.0
+offset_right = 26.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 10
+text = "Enter"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="become_highlighted" from="Door" to="." method="_on_area_2d_become_highlighted"]
+[connection signal="become_interacted" from="Door" to="." method="_on_area_2d_become_interacted"]

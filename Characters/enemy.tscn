@@ -228,6 +228,7 @@ size = Vector2(394, 790)
 radius = 117.29
 
 [node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(0.03, 0.03)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_2g0ci")

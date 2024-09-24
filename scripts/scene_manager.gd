@@ -79,7 +79,6 @@ func load_scene(build_name, file_data):
 
 
 
-
 #func _ready():
 	#current_map = "konoha"
 	#load_data("res://Data/MapData/konohaData/konoha_save.json")

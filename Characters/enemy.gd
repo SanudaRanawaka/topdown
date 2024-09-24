@@ -72,7 +72,7 @@ func accelerate_towards_points(point, delta):
 	mov_direction = (point.position - position).normalized()
 	if mov_distance.length() <= 100:
 		mov_direction = Vector2.ZERO
-	
+	movement = mov_direction * move_speed
 	velocity = movement
 	velocity = velocity.move_toward(mov_direction*move_speed, delta)
 	animation_tree.get("parameters/playback").travel("walk")

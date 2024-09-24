@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://05fa8cdrcogd"]
+
+[ext_resource type="Script" path="res://Levels/Maps/konoha/building.gd" id="1_sntab"]
+[ext_resource type="Texture2D" uid="uid://bjwc0aib3en17" path="res://Assets/Environment/konoha_arena.png" id="2_gcb4c"]
+[ext_resource type="PackedScene" uid="uid://cr4ejr0jtcwh4" path="res://scenes/interact_area.tscn" id="3_j70rw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_msm6v"]
+radius = 45.0
+height = 224.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12mbf"]
+size = Vector2(42, 41)
+
+[node name="ramen_shop" type="Node2D"]
+script = ExtResource("1_sntab")
+connected_scene = "inside_house"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -48)
+texture = ExtResource("2_gcb4c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -19)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_msm6v")
+
+[node name="Door" parent="." groups=["Interactable"] instance=ExtResource("3_j70rw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(96, 11)
+shape = SubResource("RectangleShape2D_12mbf")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 73.0
+offset_top = -11.0
+offset_right = 115.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 10
+text = "Enter"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="become_highlighted" from="Door" to="." method="_on_area_2d_become_highlighted"]
+[connection signal="become_interacted" from="Door" to="." method="_on_area_2d_become_interacted"]

@@ -85,6 +85,7 @@ func _process(_delta: float) -> void:
 		move_speed = 1000
 	else:
 		move_speed = 500
+	#print(self.position)
 
 #copy pasting, probably a better way
 func attack_combo():
